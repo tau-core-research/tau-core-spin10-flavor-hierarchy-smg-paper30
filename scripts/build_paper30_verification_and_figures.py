@@ -510,16 +510,21 @@ def make_figures(res):
     ax1.grid(True, which="both", alpha=0.22)
 
     win = res["flavor"]["SUSY_PH16_2loop_DW_unification_audit"]["isolated_T10_LLLL_squark_windows"]
-    p3c_isl = res["pillar3C_deep_d6_unification_and_splitsusy_island"]["splitsusy_tanb_island_scan"]["tb_3.0"]
-    msq_isl = p3c_isl["M_sq_SK_TeV"] * 1e3
-    dft_isl = (6.0 * (0.95 ** 2) / (4.0 * math.pi ** 2)) * ((msq_isl / 125.25) ** 2) * math.log(1.21e16 / msq_isl)
+    p3c_scan = res["pillar3C_deep_d6_unification_and_splitsusy_island"]["splitsusy_tanb_island_scan"]
+    p3c_isl = p3c_scan["tb_2.5"]
+    p3c_50 = p3c_scan["tb_50.0"]
+    msq_isl = p3c_isl["M_sq_SK_plus_mu_TeV"] * 1e3
+    msq_50_sp = p3c_50["M_sq_SK_plus_mu_TeV"] * 1e3
+    dft_isl = (6.0 * (0.95 ** 2) / (4.0 * math.pi ** 2)) * ((msq_isl / 125.25) ** 2) * math.log(1.22e16 / msq_isl)
+    dft_50_sp = (6.0 * (0.95 ** 2) / (4.0 * math.pi ** 2)) * ((msq_50_sp / 125.25) ** 2) * math.log(1.22e16 / msq_50_sp)
     mechs = [
         ("Non-SUSY Spin(10)\n(GUT scale)", 1.4e25, "#991b1b"),
         ("Conformal Portal\n(NO-GO)", 3.1e17, "#b91c1c"),
         (r"Non-SUSY $G_{422}$" + "\n" + r"($M_{\mathrm{PS}}$ scale)", 3.9e16, "#dc2626"),
-        (f"Full d=5 tanb=50\n({d5_full['Combined_T10_T126_T120_at_MU']['Msq_min_SK_TeV']} TeV, m_h NO-GO)", d5_full["Combined_T10_T126_T120_at_MU"]["Delta_FT_SK"], "#7f1d1d"),
+        (f"Full d=5 tanb=50 (Vd_ref)\n({d5_full['Combined_T10_T126_T120_at_MU']['Msq_min_SK_TeV']} TeV, m_h NO-GO)", d5_full["Combined_T10_T126_T120_at_MU"]["Delta_FT_SK"], "#7f1d1d"),
+        (f"Full d=5 tanb=50 (Split opt)\n({p3c_50['M_sq_SK_plus_mu_TeV']} TeV, m_h NO-GO)", dft_50_sp, "#991b1b"),
         (f"Isolated T10 LLLL+RRRR\n({d5_full['Isolated_T10_mu2TeV']['Msq_min_SK_TeV']} TeV)", d5_full["Isolated_T10_mu2TeV"]["Delta_FT_SK"], "#ea580c"),
-        (f"Low-tanb Split Island\n(tanb=3, {p3c_isl['M_sq_SK_TeV']} TeV, 125 GeV)", dft_isl, "#15803d"),
+        (f"Low-tanb Split Island\n(tanb=2.5, {p3c_isl['M_sq_SK_plus_mu_TeV']} TeV, 125 GeV)", dft_isl, "#15803d"),
         (f"Isolated T10 LLLL only\n({win['uncancelled_1x']['Msq_SK_TeV']} TeV)", win["uncancelled_1x"]["Delta_FT_SK"], "#d97706"),
         (f"2-Loop 12TeV DW (LLLL)\n({win['two_loop_12TeV_DW']['Msq_SK_TeV']} TeV)", win["two_loop_12TeV_DW"]["Delta_FT_SK"], "#2563eb"),
         ("Naive TeV-SUSY\n(d=5 NO-GO)", 1015.0, "#94a3b8"),
@@ -730,17 +735,17 @@ def main():
         json.dump(d5_full, f, indent=2, allow_nan=False)
     with open(DATA_DIR / "bridge1_results.json", "w") as f:
         json.dump(dict(
-            version="v1.4.0",
+            version="v1.5.0",
             bridge1A_1loop_SUSY_strong_CP=b1_cp,
             bridge1B_smooth_delta_CP_profile=b1_prof,
         ), f, indent=2, allow_nan=False)
     with open(DATA_DIR / "bridge3_results.json", "w") as f:
         json.dump(dict(
-            version="v1.4.0",
+            version="v1.5.0",
             bridge3B_24cell_WF4_reynolds_director_isotropy=b3_dir,
             bridge3_high_dim_SMG=out["bridge3_high_dim_SMG"],
         ), f, indent=2, allow_nan=False)
-    sys.stderr.write(f"[Paper 30 v1.4.0 Master Verification & Figures COMPLETE in {time.time()-t0:.1f}s]\n")
+    sys.stderr.write(f"[Paper 30 v1.5.0 Master Verification & Figures COMPLETE in {time.time()-t0:.1f}s]\n")
 
 
 if __name__ == "__main__":

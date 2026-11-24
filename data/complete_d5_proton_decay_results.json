@@ -56,13 +56,13 @@
     "Vd1": 0.321,
     "Uu2": 0.2706,
     "Vd2": 0.86,
-    "Uu34": 0.1172,
+    "Uu34": 0.1144,
     "Vd34": 0.38,
-    "sum_Uu_sq": 0.999,
+    "sum_Uu_sq": 0.9983,
     "sum_Vd_sq": 0.987,
     "max_Y10": 0.5595,
     "max_Y126": 0.2689,
-    "max_Y120": 0.0582,
+    "max_Y120": 0.1002,
     "f2_over_f3_vs_h22_over_h33": 21.38
   },
   "scenarios": {
@@ -118,23 +118,23 @@
     },
     "Isolated_T120_611_at_MU": {
       "tau_12TeV_K_LLLL_yr": null,
-      "tau_12TeV_K_RRRR_yr": 6.22215804461704e+26,
-      "tau_12TeV_K_total_yr": 6.22215804461704e+26,
-      "tau_12TeV_pi_total_yr": 2.7758271010708037e+27,
+      "tau_12TeV_K_RRRR_yr": 7.101521817234708e+25,
+      "tau_12TeV_K_total_yr": 7.101521817234708e+25,
+      "tau_12TeV_pi_total_yr": 3.168128578183511e+26,
       "dominant_K_LLLL": "nu_e",
       "dominant_K_RRRR": "nu_tau",
-      "Msq_min_SK_TeV": 693.0,
-      "Delta_FT_SK": 97271094.4
+      "Msq_min_SK_TeV": 1192.3,
+      "Delta_FT_SK": 281195964.6
     },
     "Combined_T10_T126_T120_at_MU": {
       "tau_12TeV_K_LLLL_yr": 5.132947226320015e+28,
-      "tau_12TeV_K_RRRR_yr": 1.1275275121042638e+27,
-      "tau_12TeV_K_total_yr": 1.1327028365279001e+27,
-      "tau_12TeV_pi_total_yr": 8.97192720645342e+26,
+      "tau_12TeV_K_RRRR_yr": 8.569297241676545e+25,
+      "tau_12TeV_K_total_yr": 8.572635898242003e+25,
+      "tau_12TeV_pi_total_yr": 2.033886946887367e+26,
       "dominant_K_LLLL": "nu_mu",
       "dominant_K_RRRR": "nu_tau",
-      "Msq_min_SK_TeV": 596.4,
-      "Delta_FT_SK": 72519105.1
+      "Msq_min_SK_TeV": 1137.5,
+      "Delta_FT_SK": 256455539.0
     }
   },
   "DMM_11channel_cancellation_12TeV": {
@@ -152,12 +152,12 @@
       "(120_6,120_6)"
     ],
     "complex_rank": 6,
-    "complex_residual_norm": 5.789097203832628e-45,
+    "complex_residual_norm": 1.436051205684349e-44,
     "complex_max_abs_MTinv_MU": 1.0,
     "required_amplitude_cancellation_vs_T10_SK_12TeV": 415.2,
-    "real_Parity_max_abs_MTinv_MU": 11.32,
-    "real_Parity_12TeV_tau_K_yr": 8.704922618978225e+34,
-    "real_Parity_12TeV_tau_pi_yr": 4.573252511149698e+34
+    "real_Parity_max_abs_MTinv_MU": 6.58,
+    "real_Parity_12TeV_tau_K_yr": 8.704922618968097e+34,
+    "real_Parity_12TeV_tau_pi_yr": 4.573252511154783e+34
   },
   "verdict": "PROVEN NO-GO for un-fine-tuned 12-30 TeV Mini-Split SUSY PH16_a13_h23: at tan(beta)=50, RRRR beats LLLL by 99x even on isolated T_10 (M_sq^min=255.2 TeV at mu=2 TeV), and T_126(6,1,1) (sqrt(3) Clifford Clebsch, M_sq^min=310.6 TeV) + T_120(6,1,1) (pure RRRR, M_sq^min=693.0 TeV) defeat DW splitting of 10_H alone (combined uncancelled M_sq^min=596.4 TeV, Delta_FT=7.25e7). Clean surviving routes: (i) Non-SUSY PH16_a13_h23 (zero d=5 proton decay), (ii) High-Scale Split SUSY (M_sq >= 600 TeV), or (iii) ~400x fine-tuned 11-channel DMM cancellation."
 }

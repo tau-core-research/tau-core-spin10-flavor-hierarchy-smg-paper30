@@ -254,17 +254,17 @@ def loop_f_general(m_f: float, m1: float, m2: float) -> float:
 def compute_full_d5_proton_decay(
     C5L, C5R, Vckm, yt: float, y_lep, M_sq: float, M_wino: float, mu_higgsino: float,
     M_sl: float = None, A_L: float = 1.25, A_S_L: float = 2.0, A_S_R: float = 2.0,
+    alpha_2: float = 1.0 / 29.58,
 ):
     if M_sl is None:
         M_sl = M_sq
 
-    alpha_2 = 1.0 / 29.58
     m_p, m_K, m_pi, m_B, f_pi = 0.938272, 0.493677, 0.139570, 1.15, 0.1302
     beta_H, alpha_H, D_ch, F_ch = 0.0144, -0.0144, 0.80, 0.46
     hbar_GeV_s, sec_per_yr = 6.582119569e-25, 3.15576e7
 
-    f_wino = loop_f_general(M_wino, M_sq, M_sq)
-    f_higg = loop_f_general(mu_higgsino, M_sq, M_sl)
+    f_wino = loop_f_general(abs(M_wino), M_sq, M_sq) * (1.0 if M_wino >= 0 else -1.0)
+    f_higg = loop_f_general(abs(mu_higgsino), M_sq, M_sl) * (1.0 if mu_higgsino >= 0 else -1.0)
     pref_L = (alpha_2 / (2.0 * math.pi)) * f_wino * A_L * A_S_L
     pref_R_base = (1.0 / (16.0 * math.pi ** 2)) * f_higg * yt * A_L * A_S_R
 
@@ -376,9 +376,10 @@ def run_complete_d5_multitriplet_audit(ph16_params=None):
     _, UeL, UeR = exact_lr_diag(H - 3.0 * F + 1j * c_e * A)
     Vckm = UuL.conj().T @ UdL
 
-    # Exact simultaneous light-Higgs doublet mixing unitarity (sum |U_u|^2 <= 1, sum |V_d|^2 <= 1):
-    k_d120 = math.sqrt(((3.0 + c_e) / 4.0) ** 2 + ((1.0 - c_e) / 4.0) ** 2)
-    k_u120 = math.sqrt(((3.0 * c_u + c_nu) / 4.0) ** 2 + ((c_u - c_nu) / 4.0) ** 2)
+    # Exact simultaneous light-Higgs doublet mixing unitarity (sum |U_u|^2 <= 1, sum |V_d|^2 <= 1),
+    # including the exact factor of 3 from H_d(15,2,2) Clebsch 1/sqrt(3) vs H_d(1,2,2) Clebsch 1:
+    k_d120 = math.sqrt(((3.0 + c_e) / 4.0) ** 2 + 3.0 * ((1.0 - c_e) / 4.0) ** 2)
+    k_u120 = math.sqrt(((3.0 * c_u + c_nu) / 4.0) ** 2 + 3.0 * ((c_u - c_nu) / 4.0) ** 2)
     Uu1, Vd2, Vd34 = 0.955, 0.860, 0.380
     Vd1 = Uu1 / (abs(r) / tanb)
     Uu2 = Vd2 * (abs(r * s) / tanb)
