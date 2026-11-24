@@ -1,0 +1,292 @@
+{
+  "version": "v1.6.0-stageA-rev2",
+  "gate1_literature_benchmarks": {
+    "rpv_A_S_300_to_2GeV": 1.3258,
+    "rpv_lam_prod_1e33yr_300GeV": 2.5014e-26,
+    "rpv_lam_prod_SK2p4e34yr_300GeV": 5.106e-27,
+    "resonant_f_peak": 0.5,
+    "crv_hier_ratio": 0.999946,
+    "splitsusy_gravitino_tau_100TeV_sec": 0.03226,
+    "starobinsky_Gamma_HH_GeV": 36.49973,
+    "all_pass": true
+  },
+  "branch_I_uv_dparity_strong_cp": {
+    "D_parity_algebra": {
+      "D_squared": "+1",
+      "D_commutes_G11": true,
+      "D_swaps_TL_TR": true,
+      "D_flips_B_minus_L": true,
+      "Phi_D_eigenvalue": -1,
+      "Phi_15_eigenvalue": 1,
+      "both_Re_and_Im_TrH10dagH120_are_D_odd": true
+    },
+    "Z2_210_shielding_PROVEN_NO_GO": {
+      "D_tilde_eigenvalue_on_Phi_D": 1,
+      "quartic_imTr_PhiD2_vanishes_by_Spin10_gauge_D": true,
+      "consequence": "PROVEN NO-GO: Z_2^{(210)} leaves D_tilde = D * Z_2^{(210)} unbroken by <Phi_D>, enforcing M_{Delta_L} == M_{Delta_R} and g_L == g_R to all orders (destroying D-parity breaking and collapsing Branch I back to excluded G_{422D}). Meanwhile the quartic i*Tr(H_10^dag H_120 - h.c.)*Phi_D^2 is D-odd under inner Spin(10) gauge D and vanishes identically."
+    },
+    "exact_PH16_nEDM_sensitivity": {
+      "r_vu_over_vd": 73.164,
+      "c_u_PH16": 0.003794,
+      "eps_u_over_eps_d": 263.58,
+      "vd_122_component": 5.0971,
+      "vd_1522_component": -4.0971,
+      "vu_122_component": -0.0578,
+      "vu_1522_component": 0.0616,
+      "dtheta_u_deps_u": -0.031315,
+      "dtheta_d_deps_d": -2.018419,
+      "exact_dtheta_tot_deps_d": -10.2725,
+      "max_allowed_eps_d_nEDM": 1.266e-11,
+      "max_allowed_eps_122_nEDM": 2.483e-12,
+      "verdict": "Branch I with D-odd <Phi_D> != 0 suffers tree-level Strong-CP phase leakage d(bar_theta)/d(eps_d) = -10.27 (5.01x steeper than unseparated A), requiring either |eps_d| < 1.27e-11 (|eps_(1,2,2)| < 2.48e-12) fine-tuning of lambda_D, or an external PQ/axion (Paper 26)."
+    }
+  },
+  "branch_I_leptogenesis_closure": {
+    "branch_I_baseline_2flavor": {
+      "M1_GeV": 165250000000.0,
+      "M2_GeV": 79797000000000.0,
+      "M2_over_M1": 482.89,
+      "eps1_e_mu_tau": [
+        -5.858e-09,
+        -3.9985e-08,
+        3.4343e-08
+      ],
+      "eps1_unflav_sum": -1.1501e-08,
+      "K1_e_mu_tau": [
+        2.304,
+        13.532,
+        13.377
+      ],
+      "K1_2flav_emu_and_tau": [
+        15.837,
+        13.377
+      ],
+      "eta_B_unflav_exact_ODE": 9.3668e-13,
+      "eta_B_2flav_exact_Nardi_ODE": -1.1326e-12,
+      "eta_B_2flav_diag_AeqI": 6.5089e-13,
+      "eta_B_3flav_invalid_at_1p65e11": 1.4772e-11,
+      "shortfall_2flav_vs_Planck": 540.4
+    },
+    "minimal_starobinsky_gravitational_scan": [
+      {
+        "xi_H": 0.0,
+        "Gamma_tot_GeV": 36.534,
+        "BR_phi_N1N1": 1.3352e-05,
+        "T_rh_GeV": 5099500000.0,
+        "M1_over_Trh": 32.4,
+        "eta_B_NT": 9.1696e-17,
+        "shortfall_vs_Planck": 6674000.0
+      },
+      {
+        "xi_H": 0.1,
+        "Gamma_tot_GeV": 5.8747,
+        "BR_phi_N1N1": 8.3036e-05,
+        "T_rh_GeV": 2044900000.0,
+        "M1_over_Trh": 80.81,
+        "eta_B_NT": 2.2867e-16,
+        "shortfall_vs_Planck": 2676000.0
+      },
+      {
+        "xi_H": 0.15,
+        "Gamma_tot_GeV": 0.39971,
+        "BR_phi_N1N1": 0.0012204,
+        "T_rh_GeV": 533390000.0,
+        "M1_over_Trh": 309.8,
+        "eta_B_NT": 8.7665e-16,
+        "shortfall_vs_Planck": 698100.0
+      },
+      {
+        "xi_H": 0.16,
+        "Gamma_tot_GeV": 0.093113,
+        "BR_phi_N1N1": 0.0052389,
+        "T_rh_GeV": 257440000.0,
+        "M1_over_Trh": 641.88,
+        "eta_B_NT": 1.8163e-15,
+        "shortfall_vs_Planck": 336900.0
+      },
+      {
+        "xi_H": 0.166667,
+        "Gamma_tot_GeV": 0.034713,
+        "BR_phi_N1N1": 0.014053,
+        "T_rh_GeV": 157190000.0,
+        "M1_over_Trh": 1051.26,
+        "eta_B_NT": 2.9748e-15,
+        "shortfall_vs_Planck": 205700.0
+      }
+    ],
+    "minimal_starobinsky_NO_GO": true,
+    "minimal_starobinsky_flavor_invariant": true,
+    "minimal_starobinsky_max_eta_B": 2.9748e-15,
+    "direct_inflaton_portal_Trh_req_BR1_GeV": 454440000000.0,
+    "direct_portal_rethermalizes_since_Trh_gt_M1": true,
+    "fixed_mnu_resonant_closure": {
+      "boost_at_M2_over_M1_10p6_fixed_mnu": 1.005,
+      "required_delta_12_for_2flav_Planck": 0.0006177,
+      "required_M2_over_M1": 1.000618,
+      "verdict": "At M_1 = 1.65e11 GeV, physical 2-flavor SM thermal leptogenesis (exact Nardi C^(l+H) ODE) flips sign to negative eta_B = -1.13e-12 (540.4x magnitude shortfall). Minimal Starobinsky decay is a PROVEN NO-GO (max 2.97e-15), direct portal re-thermalizes (T_rh > M_1), and fixed-m_nu resonant closure requires both opposite CP phase sign and true degeneracy delta_12 = 6.18e-04 (requiring an extended RH sector beyond PH16)."
+    }
+  },
+  "branch_II_rpv_wino_window": {
+    "sympy_derivations": {
+      "dalitz_massless": "1/12 (exact)",
+      "dalitz_SU2_triplet_constructive": "1/4 = 3*(1/12) (exact C_int = 3)",
+      "bino_UDD_3mediator_hypercharge_factor": 1,
+      "massive_top_dalitz_I_rt": 0.053277,
+      "massive_top_over_massless_ratio": 0.6393,
+      "bilinear_2body_goldstone_limit": "M_w^3 theta_{nu,w}^2 / (8 pi v^2) for W+- l-+ (exact)",
+      "all_pass": true
+    },
+    "neutralino_mixing_both_mu": {
+      "plus_2TeV": {
+        "mu_GeV": 2000.0,
+        "N_wB": 0.002575,
+        "N_wW": 0.998339,
+        "N_wHd": 0.048105,
+        "N_wHu": 0.031589
+      },
+      "minus_2TeV": {
+        "mu_GeV": -2000.0,
+        "N_wB": 0.000847,
+        "N_wW": 0.999337,
+        "N_wHd": 0.036344,
+        "N_wHu": 0.002088
+      }
+    },
+    "trilinear_RPV": {
+      "LLE_pure_L": {
+        "zero_proton_decay": true,
+        "C_int_SU2_triplet": 3,
+        "lam_min_BBN_150TeV": 1.217e-06,
+        "lam_min_BBN_214TeV": 2.48e-06,
+        "lam_max_allflavor_washout_150TeV": 1.814e-06,
+        "allflavor_window_open": true,
+        "e_flavor_protected_note": "Pure mu/tau LLE^c (lam_233) conserves B/3 - L_e of Branch II N_2 leptogenesis: open BBN-safe window |lam_233| > 1.22e-06 (150 TeV) to 2.48e-06 (214 TeV)."
+      },
+      "LQD_pure_L": {
+        "zero_proton_decay": true,
+        "C_int_SU2_triplet": 3,
+        "lamp_min_BBN_150TeV": 7.029e-07,
+        "lamp_max_allflavor_washout_150TeV": 1.047e-06,
+        "allflavor_window_open": true
+      },
+      "UDD_pure_B": {
+        "zero_proton_decay": true,
+        "by_mu_sign": {
+          "plus_2TeV": {
+            "higgsino_over_bino_width_ratio": 346.3,
+            "lampp_light_min_BBN_150TeV": 0.0004311,
+            "lampp_3jk_top_min_BBN_150TeV": 2.313e-05,
+            "lampp_3jk_top_min_BBN_105TeV_stop": 1.135e-05,
+            "lampp_max_washout_150TeV": 1.814e-06,
+            "light_quark_UDD_closed": true,
+            "top_quark_UDD_150TeV_closed": true
+          },
+          "minus_2TeV": {
+            "higgsino_over_bino_width_ratio": 14.0,
+            "lampp_light_min_BBN_150TeV": 0.00131,
+            "lampp_3jk_top_min_BBN_150TeV": 0.0003386,
+            "lampp_3jk_top_min_BBN_105TeV_stop": 0.0001703,
+            "lampp_max_washout_150TeV": 1.814e-06,
+            "light_quark_UDD_closed": true,
+            "top_quark_UDD_150TeV_closed": true
+          }
+        },
+        "verdict": "Light-quark U^c D^c D^c (lam''_1jk, 2jk) is CLOSED for both +-mu (bino-suppressed lam''_BBN = 4.31e-04 [+mu] / 1.31e-03 [-mu] >> washout 1.81e-06). Top-quark lam''_3jk via higgsino-stop mixing is 346x faster at +mu (lam''_BBN = 2.31e-05 at 150 TeV, 1.13e-05 at 105 TeV stop \u2014 still 6.3x above washout 1.81e-06 at mu=+2 TeV, re-opening only if mu <= 1 TeV or M_stop <= 70 TeV)."
+      }
+    },
+    "bilinear_RPV_window": {
+      "bino_seesaw_factor": 1.1404,
+      "split_susy_gauge_washout_I_sph": 2.6342,
+      "m_nu_RPV_min_BBN_eV": 1.186e-14,
+      "m_nu_RPV_max_LHC_ctau100m_eV": 3.557e-09,
+      "m_nu_RPV_max_gauge_washout_eV": 0.0005206,
+      "open_window_BBN_washout_LHC_decades": 5.48,
+      "scan": [
+        {
+          "m_nu_RPV_eV": 1e-15,
+          "kappa_eps_over_mu": 8.315e-13,
+          "tau_wino_sec": 1.186,
+          "c_tau_meters": 355700000.0,
+          "bbn_safe": false,
+          "washout_safe_all_flavors": true,
+          "lhc_run2_safe_ctau_gt_100m": true,
+          "zero_proton_decay": true
+        },
+        {
+          "m_nu_RPV_eV": 1e-14,
+          "kappa_eps_over_mu": 2.629e-12,
+          "tau_wino_sec": 0.1186,
+          "c_tau_meters": 35570000.0,
+          "bbn_safe": false,
+          "washout_safe_all_flavors": true,
+          "lhc_run2_safe_ctau_gt_100m": true,
+          "zero_proton_decay": true
+        },
+        {
+          "m_nu_RPV_eV": 1e-12,
+          "kappa_eps_over_mu": 2.629e-11,
+          "tau_wino_sec": 0.001186,
+          "c_tau_meters": 355700.0,
+          "bbn_safe": true,
+          "washout_safe_all_flavors": true,
+          "lhc_run2_safe_ctau_gt_100m": true,
+          "zero_proton_decay": true
+        },
+        {
+          "m_nu_RPV_eV": 1e-10,
+          "kappa_eps_over_mu": 2.629e-10,
+          "tau_wino_sec": 1.186e-05,
+          "c_tau_meters": 3557.0,
+          "bbn_safe": true,
+          "washout_safe_all_flavors": true,
+          "lhc_run2_safe_ctau_gt_100m": true,
+          "zero_proton_decay": true
+        },
+        {
+          "m_nu_RPV_eV": 1e-09,
+          "kappa_eps_over_mu": 8.315e-10,
+          "tau_wino_sec": 1.186e-06,
+          "c_tau_meters": 355.7,
+          "bbn_safe": true,
+          "washout_safe_all_flavors": true,
+          "lhc_run2_safe_ctau_gt_100m": true,
+          "zero_proton_decay": true
+        },
+        {
+          "m_nu_RPV_eV": 1e-08,
+          "kappa_eps_over_mu": 2.629e-09,
+          "tau_wino_sec": 1.186e-07,
+          "c_tau_meters": 35.57,
+          "bbn_safe": true,
+          "washout_safe_all_flavors": true,
+          "lhc_run2_safe_ctau_gt_100m": false,
+          "zero_proton_decay": true
+        },
+        {
+          "m_nu_RPV_eV": 1e-06,
+          "kappa_eps_over_mu": 2.629e-08,
+          "tau_wino_sec": 1.186e-09,
+          "c_tau_meters": 0.3557,
+          "bbn_safe": true,
+          "washout_safe_all_flavors": true,
+          "lhc_run2_safe_ctau_gt_100m": false,
+          "zero_proton_decay": true
+        }
+      ],
+      "verdict": "Bilinear RPV (eps_i L_i H_u) has a clean 5.48-decade window m_nu^RPV in [1.19e-14, 3.56e-09] eV passing BBN (tau < 0.1 s), Split-SUSY gauge-strength washout (< 5.21e-04 eV), ATLAS/CMS Run-2 LLP (c*tau > 100 m), and exact baryon-number conservation (ZERO RPV proton decay)!"
+    },
+    "gravitino_relief_with_RPV": {
+      "m32_TeV": 150.0,
+      "Gamma_32_Split_prefactor": "146 / (384 pi) (12 gauge+gaugino + light Higgs+higgsino)",
+      "tau_32_Split_sec": 0.00956,
+      "T_decay_32_MeV": 8.788,
+      "goldstino_M3_sq_over_3m32_sq": 0.0001333,
+      "T_rh_max_exact_Rparity_AeST_GeV": 273000000.0,
+      "T_rh_max_with_RPV_KKMT18_hadronic_BBN_GeV": 107000000000.0,
+      "thermal_N2_leptogenesis_T_rh_needed_GeV": 20000000000.0,
+      "gravitino_crisis_resolved": true,
+      "AeST_DM_fraction_pct": 100.0
+    }
+  },
+  "runtime_seconds": 0.5
+}
