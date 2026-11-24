@@ -8,6 +8,7 @@
 
 import json
 import math
+from pathlib import Path
 import numpy as np
 
 from verify_3gen_spin10_2T_global_fit import TARGETS as NS_TARGETS
@@ -108,7 +109,8 @@ def solve_exact_DW_sweet_spot(tau_2TeV_MU_yr: float, M_SUSY: float = 2000.0):
 
 
 def main():
-    with open("/Users/jolcsak/.gemini/antigravity/brain/a427c21d-9cd4-494e-9b77-f0a1253ad296/scratch/susy_and_ns_ph17_basin.json") as f:
+    data_path = Path(__file__).resolve().parent.parent / "data" / "susy_and_ns_ph17_basin.json"
+    with open(data_path) as f:
         b = json.load(f)
 
     s1_16 = b["S1_PH16_from_PH17_a13"]["a13_h23"]
