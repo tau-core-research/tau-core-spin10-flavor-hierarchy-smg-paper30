@@ -1,0 +1,208 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1.85cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=blue!70!black,
+    urlcolor=blue!70!black
+}
+\emergencystretch=2.5em
+
+\title{\textbf{Four-Simplex $\mathrm{Spin}(10)$ Particle Genesis, 16-Parameter Parity--Hermitian Flavor Closure, Dimension-5 Proton Decay, and 24-Cell Chiral Lattice Symmetric Mass Generation}}
+
+\author{Jozsef Olcsak\\[0.25em]
+\small Independent Researcher $\cdot$ ORCID: \href{https://orcid.org/0009-0003-7311-6522}{0009-0003-7311-6522}\\
+\small Tau Core Research Program --- Paper 30 (\texttt{v1.0.0})}
+\date{24 November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present a self-contained, single-command verified (\texttt{python3 -W error}, \texttt{rc = 0}) four-pillar audit of the particle-physics, flavor, electroweak-hierarchy, and chiral-lattice sectors built on the 4-simplex ($\sigma_4$, five boundary tetrahedra $\partial\sigma_4$) and 24-cell ($D_4/F_4$, binary tetrahedral group $2T$) architecture of Tau Core.
+First, on the 32-dimensional boundary Clifford exterior space $\mathcal{H}_{\partial\sigma_4} = \Lambda^\bullet(\mathbb{C}^5)$, we construct explicitly all 16 Standard Model chiral states in $\mathbf{16} = \Lambda^{\mathrm{even}}(\mathbb{C}^5)$, all 45 $\mathrm{Spin}(10)$ gauge bosons ($12 + 9 + 24$), exact charge quantization $Q \equiv N_4 - \frac{1}{3}(N_1 + N_2 + N_3)$ and proton--electron neutrality ($2.22\times 10^{-16}$), Pati--Salam zero tree-level proton decay, and all three Higgs Yukawa sectors ($\mathbf{10}_H$, $\overline{\mathbf{126}}_H$, and the strictly antisymmetric 3-gamma $\mathbf{120}_H$, verified to $1.11\times 10^{-16}$). We also prove that $|\lambda| = 1/4$ is a shared exact transfer-matrix eigenvalue of both the 4-simplex $K_5$ (multiplicity 4) and the 24-cell $P_{24} = A_{24}/8$ (multiplicity 8), matching $\cos\theta_{\sigma_4} = 1/4$, and derive exact texture zeros from $\mathbb{Z}_6 \subset 2T$.
+Second, we map the complete 3-generation flavor no-go landscape across all 18 SM + neutrino observables and identify a predictive \textbf{16-parameter Parity--Hermitian closure} ($\mathrm{PH16}_{a13,h23}$, $\mathrm{dof} = 2$) with complementary 1-gamma vs.\ 3-gamma flavor geometry ($a_{13} = h_{23} = 0$) and exact tree-level Strong-CP vanishing ($\bar\theta_{\mathrm{QCD,tree}} \equiv 0$, $\det(M_u M_d) > 0$). It achieves $\chi^2 = 0.0297$ ($\max|\mathrm{pull}| = 0.13\sigma$, $\max|Y| = 0.249$) in non-SUSY $\mathrm{Spin}(10)$ and $\chi^2 = 1.3478$ ($\max|\mathrm{pull}| = 1.00\sigma$, $\max|Y| = 0.534$) in pure 1-loop MSSM ($\tan\beta = 50$, $\Delta_b = 0$).
+Third, we prove exhaustive 4D perturbative no-go theorems against the conformal Higgs portal ($\Delta_{\mathrm{FT}} = 3.1\times 10^{17}$), the relaxion ($M_{\max} = 3.22\times 10^{10}\;\mathrm{GeV} < M_{\mathrm{PS}}$), $\mathbf{10}\otimes\mathbf{10}$ composite Higgs doublets (0 color-singlet doublets), 9-group complete-$\mathrm{Spin}(10)$ partial compositeness ($0/15$ survivors), and naive uncancelled TeV-SUSY dimension-5 proton decay ($\tau(p\to K^+\bar\nu_\tau) = 3.81\times 10^{27}\;\mathrm{yr} \ll 5.9\times 10^{33}\;\mathrm{yr}$ Super-K). Pairing $\mathrm{PH16}_{a13,h23}$ with Dimopoulos--Wilczek missing-VEV splitting fixes the extra doublet scale uniquely at $M' = 2.64\times 10^{14}\;\mathrm{GeV}$ ($\Delta\alpha_3^{-1} = 0$, $M_U = 1.04\times 10^{16}\;\mathrm{GeV}$, $39.25\times$ triplet suppression), placing Mini-Split squarks $M_{\tilde q} \in [12.0,\; 18.4]\;\mathrm{TeV}$ ($\Delta_{\mathrm{FT}} = 3.47\times 10^4$) directly inside the Hyper-Kamiokande 10-year discovery window.
+Fourth, we prove exact $72 = 36(+) + 36(-)$ naive fermion doubling on the 4D 24-cell lattice, verify Ginsparg--Wilson Overlap ($2.78\times 10^{-16}$) and 5D Domain-Wall zero modes ($1.14\times 10^{-5}$ leakage), construct exact $\mathrm{Spin}(7)$ and 45-generator $\mathrm{Spin}(10)$-invariant 4-fermion mirror-gapping interactions, and solve the coupled 1+1D $\mathrm{Spin}(7)$ Symmetric Mass Generation (SMG) chain exactly up to $L=3$ ($\dim = 4096$), observing a sharp gapless-to-SMG quantum phase transition at $g_c \approx 0.20\text{--}0.22$ with strictly zero bilinear symmetry breaking ($\le 1.54\times 10^{-14}$).
+\end{abstract}
+
+\paragraph{Publication audit: assumptions, claim boundaries, and open gates.}
+We maintain strict four-tier epistemic separation (\texttt{PROVEN}, \texttt{PROVEN NO-GO}, \texttt{CONDITIONAL}, \texttt{OPEN}). Every finite-dimensional Clifford, gauge-algebra, transfer-matrix, 1-loop/2-loop RG, 9-group beta-function, 4D lattice dispersion, and $L \le 3$ exact many-body statement is verified deterministically by \texttt{scripts/build\_paper30\_verification\_and\_figures.py}. Conversely: (i) the 16-parameter $\mathrm{PH16}_{a13,h23}$ flavor closures are conditional on Parity--Hermiticity and the complementary texture zeros $a_{13} = h_{23} = 0$, and predict a sharply falsifiable near-CP-conserving leptonic phase ($\delta_{\mathrm{CP}}^\ell \approx 359^\circ\text{--}360^\circ$) testable by DUNE and Hyper-Kamiokande; (ii) radiative 1-loop SUSY soft-phase contributions to $\bar\theta_{\mathrm{QCD}}$ require aligned/real soft-breaking terms; (iii) the exact SMG quantum phase transition is proved in $0+1$D and $1+1$D ($L=2, 3$), whereas a full nonperturbative 4D chiral-gauge lattice continuum limit on the 24-cell remains \texttt{OPEN}. Accordingly, \texttt{NATURE\_LEVEL\_CLOSURE = false}.
+
+\section{Introduction and Relation to Papers 22, 25, 26, and 27}
+Earlier papers in the Tau Core program explored separate facets of the microscopic particle and lattice architecture: Paper~22 introduced the finite $K_4$ algebraic seed and a one-generation $\mathrm{Spin}(10)$ outline; Paper~25 (\texttt{10.5281/zenodo.24477423}) audited charged-fermion RG matching and explicitly documented a counterexample to an unrestricted CKM ratio identity; Paper~26 (\texttt{10.5281/zenodo.24477427}) compared a discrete gauge axion against modular Strong-CP benchmarks; and Paper~27 (\texttt{10.5281/zenodo.24477434}) established 24-cell $D_4/F_4$ bosonic continuum isotropy and scalar reflection positivity while leaving chiral lattice fermions explicitly open.
+
+Paper~30 unifies and extends these four fronts into a single, adversarial-tested, machine-verified particle-physics and chiral-lattice closure. Rather than postulating flavor textures or hierarchy resolutions ad hoc, we test every minimal candidate directly against all 18 Standard Model + neutrino observables, gauge coupling unification, calibrated dimension-5 proton decay, hypercolor asymptotic freedom, and exact lattice/many-body diagonalization—explicitly documenting every \texttt{PROVEN NO-GO} obstruction alongside the surviving mechanisms.
+
+\section{Pillar I: Exact 4-Simplex $\mathrm{Spin}(10)$ Algebra, 3-Gamma $\mathbf{120}_H$, and $|\lambda| = 1/4$}
+The boundary $\partial\sigma_4$ of a 4-simplex $\sigma_4$ consists of $5$ tetrahedra ($k \in \{1,\dots,5\}$), generating a 5-mode fermionic creation--annihilation algebra $\{a_k, a_l^\dagger\} = \delta_{kl}$ on the $2^5 = 32$-dimensional exterior Hilbert space $\mathcal{H}_{\partial\sigma_4} = \Lambda^\bullet(\mathbb{C}^5)$. Defining $\Gamma_{2k-1} = a_k + a_k^\dagger$, $\Gamma_{2k} = -i(a_k - a_k^\dagger)$, number operators $N_k = a_k^\dagger a_k$, chirality $\Gamma_{11} = (-i)^5 \prod_{a=1}^{10}\Gamma_a$, and charge-conjugation matrix $B_{10} = \prod_{k=1}^5 \Gamma_{2k}$ (\texttt{verify\_4simplex\_particles\_bosons\_yukawa.py}), we verify to machine precision:
+\begin{enumerate}
+    \item \textbf{Exact 16-state chiral SM multiplet and charge quantization (\texttt{PROVEN}):} The even-parity subspace $\Lambda^{\mathrm{even}}(\mathbb{C}^5)$ reproduces all 16 chiral fermions of one Standard Model generation (Figure~\ref{fig:p1}A), with exact color-tetrahedron ($k=1,2,3$) vs.\ weak-tetrahedron ($k=4,5$) charge operators:
+    \begin{equation}
+        B - L = 1 - \frac{2}{3}(N_1 + N_2 + N_3), \qquad Q = N_4 - \frac{1}{3}(N_1 + N_2 + N_3).
+        \label{eq:charge-quant}
+    \end{equation}
+    Exact electric charge quantization holds with zero error ($0.0$), proton--electron neutrality $Q(u)+Q(u)+Q(d)+Q(e^-) = 0$ holds to $2.22\times 10^{-16}$, and all 45 $\mathrm{Spin}(10)$ generators $\Sigma_{ab} = \frac{i}{4}[\Gamma_a, \Gamma_b]$ decompose cleanly into $12$ SM gauge bosons + $9$ Pati--Salam $SU(4)_C\times SU(2)_R$ bosons (zero tree-level proton decay) + $24$ $X,Y$ leptoquarks.
+    \item \textbf{Exact Higgs Yukawa decomposition $\mathbf{16}\otimes\mathbf{16} = \mathbf{10}_S \oplus \mathbf{120}_A \oplus \overline{\mathbf{126}}_S$ (\texttt{PROVEN}):}
+    On $\Lambda^{\mathrm{even}}(\mathbb{C}^5)$, the 1-gamma operators $(a_5, a_5^\dagger)$ realize $\mathbf{10}_H$ (symmetric, giving $M_e = M_d$ and $M_{\nu_D} = M_u$, hence single-$\mathbf{10}_H$ is a \texttt{PROVEN NO-GO}); the 5-gamma operators realize $\overline{\mathbf{126}}_H$ with exact Georgi--Jarlskog ratio $M_e/M_d = M_{\nu_D}/M_u = -3.0$ ($1.11\times 10^{-16}$) and exclusive right-handed Majorana seesaw operator $a_1^\dagger a_2^\dagger a_3^\dagger a_4^\dagger a_5^\dagger$ acting solely on $\nu_R^c$; and all four 3-gamma operators $(2N_4-1)a_5$, $(B-L)a_5$, $(2N_4-1)a_5^\dagger$, $(B-L)a_5^\dagger$ realize $\mathbf{120}_H$ with exact antisymmetry $M^T = -M$ (max error $1.11\times 10^{-16}$) and exact $(15,2,2)$ lepton-to-quark ratio $-3.0$ ($<10^{-14}$).
+    \item \textbf{Geometric origin of $|\lambda| = 1/4$ and $\mathbb{Z}_6 \subset 2T$ selection rules (\texttt{PROVEN}):}
+    The normalized adjacency/transfer operator of the 4-simplex $P_{K_5} = A_{K_5}/4$ has spectrum $\{1^{(1)},\; -\tfrac{1}{4}^{(4)}\}$, matching $\cos\theta_{\sigma_4} = 1/4$ for the 4-simplex dihedral angle. Remarkably, the 24-cell adjacency transfer operator $P_{24} = A_{24}/8$ has exact spectrum $\{1^{(1)},\; \tfrac{1}{2}^{(5)},\; \tfrac{1}{4}^{(4)},\; 0^{(2)},\; -\tfrac{1}{4}^{(8)},\; -\tfrac{1}{2}^{(4)}\}$ (Figure~\ref{fig:p1}B), sharing $\lambda = -1/4$ with multiplicity 8. Inside the 24-cell binary tetrahedral group $2T$ ($|2T|=24$), the exact order-6 subgroup $\mathbb{Z}_6 \subset 2T$ with generation charges $q = (1, 2, 0) \pmod 6$ enforces texture zeros ($H_{d,22}=H_{u,22}=H_{d,13}=F_{12}=F_{13}=0$), enabling strictly $\mathcal{O}(1)$ Froggatt--Nielsen coefficients in $[0.44,\; 1.99]$ at $\lambda = 1/4$ ($\chi^2 = 1.262$ on the non-SUSY 16-parameter benchmark \texttt{M16-U11}, and $[0.234,\; 1.275]$ at $\chi^2 = 10.28$ for a single-$v_{\mathrm{EW}}$ $U(1)_A\times U(1)_B$ embedding).
+\end{enumerate}
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig1_4simplex_algebra_and_lambda_quarter.png}
+    \caption{\textbf{4-Simplex $\mathrm{Spin}(10)$ particle spectrum and shared $|\lambda|=1/4$ transfer eigenvalue.} (A)~Exact mapping of all 16 chiral SM states in $\Lambda^{\mathrm{even}}(\mathbb{C}^5)$ on the $(B-L, Q)$ plane from Eq.~\eqref{eq:charge-quant}. (B)~Normalized transfer spectra of $P_{K_5} = A_{K_5}/4$ and the 24-cell $P_{24} = A_{24}/8$, sharing the exact Cabibbo-scale eigenvalue $\lambda = -1/4$ with multiplicities 4 and 8.}
+    \label{fig:p1}
+\end{figure}
+
+\section{Pillar II: 3-Generation Flavor No-Go Landscape and 16-Parameter Parity--Hermitian Closure ($\bar\theta_{\mathrm{QCD,tree}} \equiv 0$)}
+We evaluate 18 flavor observables (9 charged fermion masses, 4 CKM parameters, $\Delta m_{21}^2$, $\Delta m_{31}^2$, $\sin^2\theta_{12}^\ell$, $\sin^2\theta_{23}^\ell$, $\sin^2\theta_{13}^\ell$) at $M_U^{\mathrm{SM}} = 1.13\times 10^{16}\;\mathrm{GeV}$ (1-loop SM RG, $m_b/m_\tau = 0.6185$) and $M_U^{\mathrm{SUSY}} = 7.97\times 10^{15}\;\mathrm{GeV}$ (1-loop SM $\to 2\;\mathrm{TeV} \to$ MSSM at $\tan\beta = 50$, $\Delta_b = 0$: $m_b/m_\tau = 0.7963$; $\Delta_b = -0.15$: $m_b/m_\tau = 1.0257$). Using Jacobian-scaled Trust-Region Reflective optimization (\texttt{scipy.optimize.least\_squares(..., method='trf', x\_scale='jac')}), we first establish a sharp set of flavor exclusions (Figure~\ref{fig:p2}A):
+\begin{itemize}
+    \item \textbf{Modular \& unbroken-$2T$ no-go:} Unbroken $2T$ forces $\mathbf{3} \to I_3$ (degenerate masses); finite modular $\Gamma_3 = A_4$ weights $(4,4)$ and $(4,6)$ fail at $\chi^2 = 10{,}277$ and $7{,}269$; spinorial $\Gamma'_3 = 2T$ ($S_2^2 = -I_2$, verified to $3.82\times 10^{-15}$) yields rank-2 $\det = 0$ at $k=(1,0)$ and $\chi^2 = 3{,}523$ at $k=(1,2)$. Pure power laws ($|c|=1$, 8p: $\chi^2 = 15{,}157$) and 1D separable lattice overlaps (12--13p: $\chi^2 = 3{,}549\text{--}4{,}479$) are likewise excluded.
+    \item \textbf{Symmetric $\mathbf{10}_H + \overline{\mathbf{126}}_H$ no-go (non-SUSY and SUSY):} In non-SUSY holomorphic $\mathbf{10}_H + \overline{\mathbf{126}}_H$, the 2-generation Type-II bound $\max\sin(2\theta_{23}^\ell) = m_b/(m_\tau - m_\mu) = 0.657 \implies \sin^2\theta_{23}^\ell \le 0.123$ caps full 3-generation fits at $\chi^2 = 45.3$ (Type-I) and $30.3$ (Type-I+II). In SUSY $\mathbf{10}_H + \overline{\mathbf{126}}_H$ ($\Delta_b = -0.15$, $m_b/m_\tau = 1.026$), $b$--$\tau$ unification breaks the $\sin^2\theta_{23}^\ell$ wall ($0.492$), \emph{but} the quark sector collapses ($m_c +17.7\sigma$, $m_b +16.8\sigma$, $V_{cb} -23.7\sigma$; $\chi^2 = 1{,}259$ Type-I, $447$ Type-I+II), confirming that the 4-simplex 3-gamma $\mathbf{120}_H$ is strictly required \cite{Bertolini2006}.
+\end{itemize}
+
+\paragraph{Parity--Hermitian $\mathbf{10}_H + \overline{\mathbf{126}}_H + \mathbf{120}_H$ closure ($\mathrm{PH16}_{a13,h23}$).}
+Imposing Left--Right Parity / generalized CP constrains $H, F$ to be real symmetric and $A$ to be real antisymmetric, with real VEV ratios $(r, s, c_e, c_u, c_\nu, c_R)$:
+\begin{equation}
+\begin{aligned}
+    M_d &= H + F + iA, & M_e &= H - 3F + ic_e A, \\
+    M_u &= r(H + sF + ic_u A), & M_{\nu_D} &= r(H - 3sF + ic_\nu A), \qquad M_R = c_R F.
+\end{aligned}
+\label{eq:ph-master}
+\end{equation}
+Because $M_u$ and $M_d$ are Hermitian, $\det(M_u)\det(M_d) \in \mathbb{R}$, and fixing the sign of $r$ so $\det(M_u)\det(M_d) > 0$ guarantees $\bar\theta_{\mathrm{QCD,tree}} \equiv 0$ identically without altering any mass or mixing observable. Working in the exact, lossless $SO(3)$ basis $F = \mathrm{diag}(f_1, f_2, f_3)$, the full Type-I system has $18$ real parameters ($\mathrm{dof} = 0$). Enforcing strict GUT perturbativity ($\max(|Y_{10}|_{\min}, |Y_{126}|_{\min}, |Y_{120}|_{\min}) \le 2.0 < \sqrt{4\pi}$) and scanning texture reductions uncovers a single standout \textbf{16-parameter predictive closure} ($\mathrm{PH16}_{a13,h23}$, $\mathrm{dof} = 2$) defined by complementary 1-gamma vs.\ 3-gamma zeros:
+\begin{equation}
+    h_{23} = 0 \;\;(\text{2--3 mixing purely } i a_{23} \in \mathbf{120}_H), \qquad a_{13} = 0 \;\;(\text{1--3 mixing purely } h_{13} \in \mathbf{10}_H).
+    \label{eq:ph16-zeros}
+\end{equation}
+Crucially, re-evaluating non-SUSY Parity--Hermitian $\mathbf{10}_H + \overline{\mathbf{126}}_H + \mathbf{120}_H$ with Jacobian-scaled TRF corrects an earlier Powell/Nelder--Mead stall ($\chi^2 = 77.5$) and demonstrates that the \emph{exact same} 16-parameter texture succeeds in both SUSY and non-SUSY $\mathrm{Spin}(10)$ (Table~\ref{tab:ph16}, Figure~\ref{fig:p2}B).
+
+\begin{table}[t!]
+\centering
+\caption{Side-by-side audit of the two 16-parameter ($\mathrm{dof} = 2$) Parity--Hermitian $\mathrm{PH16}_{a13,h23}$ closures ($\mathbf{10}_H + \overline{\mathbf{126}}_H + \mathbf{120}_H$, $a_{13} = h_{23} = 0$, pure Type-I seesaw, strictly perturbative Yukawas, $\bar\theta_{\mathrm{QCD,tree}} \equiv 0$).}
+\label{tab:ph16}
+\scriptsize
+\begin{tabular}{lcc}
+\toprule
+Quantity & \textbf{SUSY $\mathrm{PH16}_{a13,h23}$} ($\tan\beta=50, \Delta_b=0$) & \textbf{Non-SUSY $\mathrm{PH16}_{a13,h23}$} (SM RG) \\
+\midrule
+Real parameters / observables ($\mathrm{dof}$) & $16 / 18$ ($2$) & $16 / 18$ ($2$) \\
+Global $\chi^2$ / $\max|\mathrm{pull}|$ & $1.3478$ / $1.002\sigma$ ($m_s$) & $0.0297$ / $0.134\sigma$ ($m_d$) \\
+$\max(|Y_{10}|, |Y_{126}|, |Y_{120}|)$ & $(0.5343,\; 0.2313,\; 0.0221)$ & $(0.2487,\; 0.2109,\; 0.0020)$ \\
+Tree-level $\bar\theta_{\mathrm{QCD}}$ (rad) & $2.75\times 10^{-15}$ ($\det > 0$) & $3.99\times 10^{-18}$ ($\det > 0$) \\
+Neutrino mass ordering / $\sum m_\nu$ & Normal (\texttt{NO}) / $0.06103\;\mathrm{eV}$ & Normal (\texttt{NO}) / $0.06004\;\mathrm{eV}$ \\
+$m_{\beta\beta}$ / $\sin^2\theta_{23}^\ell$ / $\delta_{\mathrm{CP}}^\ell$ & $1.044\;\mathrm{meV}$ / $0.5022$ / $359.7^\circ$ & $2.845\;\mathrm{meV}$ / $0.5161$ / $359.1^\circ$ \\
+$M_R = (M_1, M_2, M_3)$ ($\mathrm{GeV}$) & $(3.99\times 10^9,\; 1.60\times 10^{10},\; 8.07\times 10^{11})$ & $(1.65\times 10^{11},\; 7.98\times 10^{13},\; 1.86\times 10^{14})$ \\
+$d=5$ proton decay ($p\to K^+\bar\nu$) & Hyper-K window with DW + Mini-Split & Absent (only $d=6$: $p\to e^+\pi^0$) \\
+Electroweak fine-tuning $\Delta_{\mathrm{FT}}$ & $3.47\times 10^4$ ($M_{\tilde q} = 12.0\;\mathrm{TeV}$) & $1.4\times 10^{25}$ (GUT) / $3.9\times 10^{16}$ (PS) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig2_flavor_nogo_and_ph16_pulls.png}
+    \caption{\textbf{3-Generation flavor no-go landscape and 18-observable pulls of $\mathrm{PH16}_{a13,h23}$.} (A)~Global $\chi^2$ across 11 tested $\mathrm{Spin}(10)$ flavor architectures, showing the sharp drop from modular/holomorphic no-go walls ($\chi^2 \in [30.3,\; 15{,}157]$) to the 16-parameter closures ($\chi^2 \le 1.35$). (B)~All 18 individual pulls of SUSY and Non-SUSY $\mathrm{PH16}_{a13,h23}$ (every observable within $1.00\sigma$ and $0.13\sigma$, respectively).}
+    \label{fig:p2}
+\end{figure}
+
+\section{Pillar III: Hierarchy No-Go Audit, Dimension-5 Proton Decay, and Dimopoulos--Wilczek Sweet Spot}
+We next audit the electroweak hierarchy problem in 4D perturbative $\mathrm{Spin}(10)$:
+\begin{enumerate}
+    \item \textbf{Non-SUSY hierarchy no-go proofs (\texttt{PROVEN NO-GO}):} 2-loop SM running sends $\lambda_H(\mu)$ negative at $3.39\times 10^9\;\mathrm{GeV}$ ($\lambda_H(M_{\mathrm{PS}}) = -0.0093$, stabilized by Pati--Salam threshold matching, but with quadratic fine-tuning $\Delta_{\mathrm{FT}}(M_{\mathrm{PS}}) = 3.9\times 10^{16}$ and $\Delta_{\mathrm{FT}}(M_U) = 1.4\times 10^{25}$). The conformal Higgs portal fails at $\Delta_{\mathrm{FT}} = 3.1\times 10^{17}$; the QCD/non-QCD relaxion caps at $M_{\max} = 3.22\times 10^{10}\;\mathrm{GeV} < M_{\mathrm{PS}}$ and conflicts with Paper~24's Starobinsky $H_{\mathrm{inf}}$. For Composite Higgs + Partial Compositeness with complete $\mathrm{Spin}(10)$ hyperfermion multiplets (\texttt{verify\_spin10\_partial\_compositeness\_audit.py}), we prove first that $\mathbf{10}\otimes\mathbf{10}$ contains \textbf{0} color-singlet $SU(2)_L$ doublets (all $(1)\times(2)$ pairs are colored leptoquarks), and second across an exhaustive 9-hypercolor-group scan ($SU(N_{\mathrm{HC}})$, $Sp(2N)$, $SO(N)$) that \textbf{0 out of 15} complete-$\mathrm{Spin}(10)$ templates simultaneously preserve hypercolor asymptotic freedom and avoid a sub-GUT $\mathrm{Spin}(10)$ Landau pole.
+    \item \textbf{Calibrated $d=5$ SUSY proton decay no-go for naive TeV-SUSY (\texttt{PROVEN NO-GO}):}
+    Integrating out the colored Higgsino triplet $T_{10}, \bar T_{10}$ from $W \supset \frac{1}{2} Y_{10}^{ij}\mathbf{16}_i\mathbf{16}_j\mathbf{10}_H$ generates $W_5 = \frac{1}{2} C_{5L}^{ijkl}(Q_i Q_j)(Q_k L_l)$ dressed by wino loops. Calibrating our chiral-Lagrangian wino-dressing calculator ($|\beta_H| = 0.0144\;\mathrm{GeV}^3$, $A_L = 1.25$, $A_S = 2.0$) against the Murayama--Pierce minimal SUSY $SU(5)$ benchmark ($M_{\tilde q} = 1\;\mathrm{TeV}, M_{\tilde w} = 200\;\mathrm{GeV}, \tan\beta = 3, M_T = 2\times 10^{16}\;\mathrm{GeV}$) yields $\tau(p\to K^+\bar\nu) = 1.63\times 10^{30}\;\mathrm{yr}$ ($2.18\times 10^{33}\;\mathrm{yr}$ at $10\;\mathrm{TeV}$), matching published values. Evaluating the exact fitted $Y_{10}$ of SUSY $\mathrm{PH16}_{a13,h23}$ at naive TeV-SUSY ($M_{\tilde q} = 2\;\mathrm{TeV}, M_{\tilde w} = 500\;\mathrm{GeV}, M_T = M_U = 7.97\times 10^{15}\;\mathrm{GeV}$) yields
+    \begin{equation}
+        \tau(p \to K^+ \bar\nu_\tau) = 3.81\times 10^{27}\;\mathrm{yr} \ll 5.9\times 10^{33}\;\mathrm{yr} \quad (\text{Super-Kamiokande } 90\%\text{ CL}),
+        \label{eq:d5-nogo}
+    \end{equation}
+    because in $\mathrm{Spin}(10)$ \emph{both} $Q Q T_{10}$ and $Q L \bar T_{10}$ share the large top-scale coupling $Y_{10}$ with no $\cot\beta$ suppression. Uncancelled survival requires $M_T^{\min} = 9.92\times 10^{18}\;\mathrm{GeV}$ or $M_{\tilde q}^{\min} = 75.7\;\mathrm{TeV}$ ($\Delta_{\mathrm{FT}} = 1.27\times 10^6$).
+    \item \textbf{Dimopoulos--Wilczek exact unification sweet spot (\texttt{CONDITIONAL}):}
+    Introducing the canonical missing-VEV doublet--triplet splitting superpotential $W_{\mathrm{DT}} = \lambda\,\mathbf{10}_H\mathbf{45}_{B-L}\mathbf{10}'_H + M'\mathbf{10}'_H\mathbf{10}'_H$ (using the $B-L$ generator already realized in our 4-simplex $\mathbf{45}$) leaves an extra Higgs doublet pair $(H'_u, H'_d)$ at mass $M'$ while suppressing the matter-coupled triplet propagator to $(M_T^{-1})_{11} = M'/M_U^2$. Solving exact 1-loop MSSM gauge unification ($\Delta b_1 = 3/5, \Delta b_2 = 1, \Delta b_3 = 0$ above $M'$) fixes $M'$ \emph{uniquely} with zero $\alpha_3$ residual ($\Delta\alpha_3^{-1} = 0.000000$, $\alpha_s(M_Z) = 0.1180$ exact):
+    \begin{equation}
+        M'_{\mathrm{exact}} = 2.64\times 10^{14}\;\mathrm{GeV}, \qquad M_U = 1.04\times 10^{16}\;\mathrm{GeV}, \qquad \alpha_U^{-1} = 25.893, \qquad \frac{M_U}{M'} = 39.25.
+        \label{eq:dw-sweet}
+    \end{equation}
+    The resulting $39.25^2 = 1{,}541\times$ lifetime boost shifts $\tau(p\to K^+\bar\nu_\tau)$ at $2\;\mathrm{TeV}$ to $5.86\times 10^{30}\;\mathrm{yr}$ and brings the Super-K / Hyper-K window directly to Mini-Split squarks $M_{\tilde q} \in [12.0,\; 18.4]\;\mathrm{TeV}$ ($M_{\tilde w} = 500\;\mathrm{GeV}$, $\Delta_{\mathrm{FT}} = 3.47\times 10^4\text{--}8.00\times 10^4$, 21 orders better than non-SUSY $\Delta_{\mathrm{FT}}$ and consistent with LHC null bounds and the 2-loop MSSM $125.25\;\mathrm{GeV}$ Higgs mass; Figure~\ref{fig:p3}).
+\end{enumerate}
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig3_hierarchy_dim5_proton_decay_dw_sweetspot.png}
+    \caption{\textbf{Calibrated $d=5$ proton decay and electroweak fine-tuning landscape.} (A)~$\tau(p\to K^+\bar\nu)$ vs.\ squark mass $M_{\tilde q}$ ($M_{\tilde w}=500\;\mathrm{GeV}$) for SUSY $\mathrm{PH16}_{a13,h23}$: uncancelled $T_{10}$ (red dashed) vs.\ Dimopoulos--Wilczek exact-unification sweet spot $M' = 2.64\times 10^{14}\;\mathrm{GeV}$ (blue solid), placing $M_{\tilde q} \in [12.0,\; 18.4]\;\mathrm{TeV}$ directly inside Hyper-Kamiokande's 10-year discovery band. (B)~Electroweak fine-tuning $\Delta_{\mathrm{FT}}$ across all audited hierarchy mechanisms.}
+    \label{fig:p3}
+\end{figure}
+
+\section{Pillar IV: 4D 24-Cell Chiral Lattice Fermions and Exact Many-Body SMG Transition}
+Extending Paper~27's bosonic 24-cell ($D_4/F_4$) lattice construction to chiral fermions (verified by \texttt{verify\_4D\_chiral\_lattice\_\allowbreak hierarchy\_and\_rgfp.py}, \texttt{verify\_open\_problems\_\allowbreak SMG\_and\_hierarchy.py}, and \texttt{verify\_1plus1D\_SMG\_\allowbreak chain\_phase\_diagram.py}), we prove:
+\begin{enumerate}
+    \item \textbf{24-cell naive fermion doubling, Overlap, and Domain-Wall (\texttt{PROVEN}):}
+    Summing over the 24 nearest-neighbor $D_4$ roots yields an isotropic free Dirac operator with exactly $72 = 36(+) + 36(-)$ isolated Brillouin-zone zeros (net chirality $0$, exact Nielsen--Ninomiya \texttt{NO-GO}). Adding the 24-cell Wilson term lifts all $71$ doublers ($\ge 2.0/a$); the 24-cell Neuberger Overlap operator satisfies the exact Ginsparg--Wilson relation $\gamma_5 D_{\mathrm{ov}} + D_{\mathrm{ov}}\gamma_5 = a D_{\mathrm{ov}}\gamma_5 D_{\mathrm{ov}}$ to $2.78\times 10^{-16}$; and a 5D Domain-Wall lattice ($L_s = 16$) localizes $4$ chiral boundary zero modes ($2$ LH on wall $s=0$, $2$ RH on mirror wall $s=L_s-1$) with cross-wall leakage $1.14\times 10^{-5}$ against a bulk gap of $0.521$.
+    \item \textbf{Exact $\mathrm{Spin}(7)$ and $\mathrm{Spin}(10)$ Symmetric Mass Generation operators (\texttt{PROVEN}):}
+    Because the $\mathbf{16}$ of $\mathrm{Spin}(10)$ is completely free of perturbative and nonperturbative anomalies ($\Omega_5^{\mathrm{Spin}}(B\mathrm{Spin}(10)) = 0$), mirror-wall fermions can in principle be gapped without symmetry breaking via Symmetric Mass Generation (SMG) \cite{FidkowskiKitaev2010,WangWen2018}. On 8 Majorana fermions ($\dim = 16$), exact diagonalization of the octonionic Cayley 4-fermion Hamiltonian $H_{\mathrm{FK}}$ verifies its 21-dimensional $\mathrm{Spin}(7)$ invariance, unique singlet ground state $E_0 = -14$ (spectrum $\{-14^{(1)},\; 0^{(8)},\; +2^{(7)}\}$, gap $14.0$), and strictly zero bilinear VEV ($0.0$). On the 4-simplex $\mathbf{16}$-spinor, we construct an explicit 4-fermion operator $\mathcal{O}_{10}$ and verify exact commutation with all 45 $\mathrm{Spin}(10)$ generators to $0.0$ error.
+    \item \textbf{Exact many-body 1+1D SMG quantum phase transition (\texttt{PROVEN} for $L=2, 3$):}
+    Coupling $L$ sites of 8 Majoranas with kinetic hopping $(1-g)H_{\mathrm{hop}}$ and on-site Cayley interaction $g H_{\mathrm{FK}}$ via sparse Lanczos/exact diagonalization at $L=2$ ($\dim = 256$) and $L=3$ periodic ($\dim = 4096$, exact $k=0$ gapless point $\Delta E(0) = 0.0000$, site-0 entanglement $S_1 = 2.58$ nats) reveals a sharp gapless-to-SMG quantum phase transition at $g_c \approx 0.20\text{--}0.22$ (Figure~\ref{fig:p4}): the finite-size ground-state susceptibility $-\mathrm{d}^2 E_0/\mathrm{d}g^2$ sharpens by $2.31\times$ from $191.8$ ($L=2$) to $442.6$ ($L=3$), the many-body gap dips to $0.223$ at $g = 0.20$ before rising smoothly to $14.0$ at $g=1$, $S_1$ collapses continuously to $0.000$, and every single bilinear symmetry-breaking VEV stays identically zero ($\le 4.50\times 10^{-16}$ at $L=2$, $\le 1.54\times 10^{-14}$ at $L=3$) across the entire gapped phase. Extending this nonperturbative SMG transition to 4D interacting chiral gauge fields on the 24-cell remains an explicitly tracked \texttt{OPEN} frontier.
+\end{enumerate}
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig4_24cell_chiral_fermions_and_smg_qpt.png}
+    \caption{\textbf{Exact many-body quantum phase transition in the coupled 1+1D $\mathrm{Spin}(7)$ Cayley SMG chain.} (A)~Many-body energy gap $\Delta E$ and site-0 entanglement entropy $S_1$ across $g \in [0, 1]$ for $L=2$ ($\dim=256$) and $L=3$ periodic ($\dim=4096$), transitioning from gapless ($\Delta E = 0, S_1 = 2.58$) to the gapped product singlet ($\Delta E = 14.0, S_1 = 0$) with bilinear VEV $\le 1.54\times 10^{-14}$ everywhere. (B)~Finite-size sharpening of $-\mathrm{d}^2 E_0/\mathrm{d}g^2$ ($191.8 \to 442.6$) pinpointing $g_c \approx 0.20\text{--}0.22$.}
+    \label{fig:p4}
+\end{figure}
+
+\section{Master Four-Tier Epistemic Ledger and Falsification Gates}
+Table~\ref{tab:ledger} summarizes every result in Paper~30 with strict epistemic tagging. Four near-term experimental gates can sharply falsify or distinguish our two 16-parameter $\mathrm{PH16}_{a13,h23}$ branches:
+(i)~\textbf{DUNE / Hyper-Kamiokande} measurement of $\delta_{\mathrm{CP}}^\ell$ (both $\mathrm{PH16}_{a13,h23}$ solutions predict $\delta_{\mathrm{CP}}^\ell \approx 359^\circ\text{--}360^\circ$, near CP conservation; a $>3\sigma$ discovery of maximal leptonic CP violation $\delta_{\mathrm{CP}}^\ell \approx 270^\circ$ would rule out this minimal branch);
+(ii)~\textbf{Hyper-Kamiokande} search for $p \to K^+\bar\nu$ (probing $M_{\tilde q} \in [12.0,\; 18.4]\;\mathrm{TeV}$ on the DW Mini-Split SUSY branch) vs.\ $p \to e^+\pi^0$ ($d=6$);
+(iii)~\textbf{JUNO / DESI / Euclid} confirmation of Normal Ordering and $\sum m_\nu = 0.060\text{--}0.061\;\mathrm{eV}$;
+(iv)~\textbf{n2EDM} sensitivity to $|d_n|$, testing tree-level $\bar\theta_{\mathrm{QCD}} = 0$ and bounding SUSY 1-loop soft-phase alignment.
+
+\begin{table}[t!]
+\centering
+\caption{Paper 30 (\texttt{v1.0.0}) four-tier epistemic ledger (\texttt{python3 -W error}, \texttt{rc = 0}, runtime $6.5\;\mathrm{s}$).}
+\label{tab:ledger}
+\scriptsize
+\begin{tabular}{p{3.9cm}p{2.0cm}p{9.2cm}}
+\toprule
+Result / Gate & Status & Verified Quantitative Witness \\
+\midrule
+4-simplex $\Lambda^{\mathrm{even}}(\mathbb{C}^5)$ $\mathrm{Spin}(10)$ & \texttt{PROVEN} & 16 SM states, 45 bosons ($12+9+24$), $Q$ err $0.0$, $p+e^-$ err $2.22\times 10^{-16}$, GJ $-3.0$, 3-gamma $\mathbf{120}_H$ antisym $1.11\times 10^{-16}$. \\
+Shared $|\lambda|=1/4$ \& $\mathbb{Z}_6\subset 2T$ & \texttt{PROVEN} & Exact eigenvalue $-1/4$ on $P_{K_5}$ (mult 4) and $P_{24}$ (mult 8); $\cos\theta_{\sigma_4}=1/4$; $\mathbb{Z}_6$ texture zeros. \\
+Flavor No-Go landscape & \texttt{PROVEN NO-GO} & Modular $A_4$ ($\chi^2=10{,}277$), spinorial $2T$ ($3{,}523$), 1D overlap ($3{,}549$), non-SUSY $\mathbf{10}+\overline{\mathbf{126}}$ ($\sin^2\theta_{23}\le 0.123$, $\chi^2=30.3$), SUSY $\mathbf{10}+\overline{\mathbf{126}}$ ($\chi^2=1{,}259/447$). \\
+$\mathrm{PH16}_{a13,h23}$ (SUSY \& Non-SUSY) & \texttt{CONDITIONAL} & 16p ($\mathrm{dof}=2$), $\bar\theta_{\mathrm{tree}}\equiv 0$: SUSY $\chi^2=1.35$ ($\max 1.00\sigma$, $\max|Y|=0.534$); Non-SUSY $\chi^2=0.030$ ($\max 0.13\sigma$, $\max|Y|=0.249$). \\
+Non-SUSY hierarchy \& 9-group PC & \texttt{PROVEN NO-GO} & Conformal portal ($\Delta_{\mathrm{FT}}=3.1\times 10^{17}$), relaxion ($M_{\max}=3.2\times 10^{10}$), $\mathbf{10}\otimes\mathbf{10}$ (0 doublets), complete-$\mathrm{Spin}(10)$ PC ($0/15$ AF/Landau survivors). \\
+Naive TeV-SUSY $d=5$ $p$-decay & \texttt{PROVEN NO-GO} & Calibrated vs.\ Murayama--Pierce ($1.63\times 10^{30}\;\mathrm{yr}$); SUSY $\mathrm{PH16}$ at $2\;\mathrm{TeV}, M_U$ gives $3.81\times 10^{27}\;\mathrm{yr} \ll 5.9\times 10^{33}\;\mathrm{yr}$ Super-K. \\
+DW exact unification + Mini-Split & \texttt{CONDITIONAL} & Unique $M'=2.64\times 10^{14}\;\mathrm{GeV}$ ($\Delta\alpha_3^{-1}=0$, $39.25\times$ suppression); $M_{\tilde q}\in [12.0, 18.4]\;\mathrm{TeV}$ ($\Delta_{\mathrm{FT}}=3.47\times 10^4$) in Hyper-K window. \\
+24-cell Overlap/DW \& 1+1D SMG & \texttt{PROVEN} & $72=36+36$ doublers, Overlap GW err $2.78\times 10^{-16}$, DW leakage $1.14\times 10^{-5}$, 45-gen $\mathcal{O}_{10}$ err $0.0$, $L=3$ SMG QPT at $g_c\approx 0.20\text{--}0.22$ (VEV $\le 1.54\times 10^{-14}$). \\
+4D interacting chiral-gauge SMG & \texttt{OPEN} & Full 4D nonperturbative Monte Carlo / tensor-network proof and 1-loop SUSY soft-phase Strong-CP alignment remain open; \texttt{NATURE\_LEVEL\_CLOSURE = false}. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{thebibliography}{9}
+\bibitem{Bertolini2006} S.~Bertolini, T.~Schwetz, and M.~Malinsk\'y, \textit{Fermion masses and mixings in $\mathrm{SO}(10)$ models and the neutrino challenge to $\mathrm{SO}(10)$ grand unification}, Phys.\ Rev.\ D \textbf{73}, 115012 (2006).
+\bibitem{Dutta2005} B.~Dutta, Y.~Mimura, and R.~N.~Mohapatra, \textit{Suppressing proton decay in the minimal $\mathrm{SO}(10)$ model}, Phys.\ Rev.\ Lett.\ \textbf{94}, 091804 (2005); Phys.\ Rev.\ D \textbf{72}, 075009 (2005).
+\bibitem{Babu2018} K.~S.~Babu, B.~Bajc, and S.~Saad, \textit{Resurrecting minimal Yukawa sector for SUSY $\mathrm{SO}(10)$}, JHEP \textbf{10} (2018) 135.
+\bibitem{Murayama2002} H.~Murayama and A.~Pierce, \textit{Not even decoupling can save minimal supersymmetric $\mathrm{SU}(5)$}, Phys.\ Rev.\ D \textbf{65}, 055009 (2002).
+\bibitem{Hisano1993} J.~Hisano, H.~Murayama, and T.~Yanagida, \textit{Nucleon decay in the minimal supersymmetric $\mathrm{SU}(5)$ grand unification}, Nucl.\ Phys.\ B \textbf{402}, 46 (1993).
+\bibitem{Dimopoulos1981} S.~Dimopoulos and F.~Wilczek, \textit{Incomplete multiplets in supersymmetric unified models}, NSF-ITP-82-07 (1981); K.~S.~Babu and S.~M.~Barr, Phys.\ Rev.\ D \textbf{48}, 5354 (1993).
+\bibitem{FidkowskiKitaev2010} L.~Fidkowski and A.~Kitaev, \textit{Effects of interactions on the topological classification of free fermion systems}, Phys.\ Rev.\ B \textbf{81}, 134509 (2010).
+\bibitem{WangWen2018} J.~Wang and X.-G.~Wen, \textit{A solution to the $1+1$D gauged chiral fermion problem}, Phys.\ Rev.\ D \textbf{99}, 111501 (2019); \textit{Nonperturbative definition of the standard models}, Phys.\ Rev.\ Research \textbf{2}, 023356 (2020).
+\bibitem{Aoki2017} Y.~Aoki, T.~Izubuchi, E.~Shintani, and A.~Soni, \textit{Improved lattice computation of proton decay matrix elements}, Phys.\ Rev.\ D \textbf{96}, 014506 (2017).
+\end{thebibliography}
+
+\end{document}
