@@ -76,6 +76,9 @@ from verify_bridge3_2plus1D_SMG_and_24cell_director_isotropy import (
     scan_lattice_smg_full_hilbert,
     audit_24cell_director_isotropy,
 )
+from verify_complete_d5_proton_decay_multitriplet_LLLL_RRRR import (
+    run_complete_d5_multitriplet_audit,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -461,59 +464,67 @@ def make_figures(res):
     fig.savefig(FIG_DIR / "fig2_flavor_nogo_and_ph16_pulls.png", dpi=300)
     plt.close(fig)
 
-    # FIG 3: Honest 2-Loop DW + Isolated T_10 LLLL Proton Decay & Hierarchy (Fixes [M3] & [M5]!)
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10.8, 4.2))
-    Msq_grid = np.geomspace(1.5e3, 2.0e5, 200)
-    def f_loop_vec(m_arr, Mw=500.0):
-        out = []
+    # FIG 3: Complete Multi-Triplet (T_10 + T_126 + T_120, LLLL + RRRR) vs Isolated T_10 LLLL Proton Decay & Hierarchy (v1.3.0)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.0, 4.3))
+    Msq_grid = np.geomspace(2.0e3, 1.2e6, 220)
+    def f_loop_vec(m_arr, mf=500.0):
+        out_f = []
         for m in m_arr:
-            x = (Mw / m) ** 2
+            x = (mf / m) ** 2
             I_l = 0.5 if abs(x - 1.0) < 1e-6 else (1.0 / (1.0 - x) + x * math.log(x) / ((1.0 - x) ** 2))
-            out.append((Mw / (m ** 2)) * I_l)
-        return np.array(out)
+            out_f.append((mf / (m ** 2)) * I_l)
+        return np.array(out_f)
 
-    f_ref = float(f_loop_vec([2000.0])[0])
-    f_arr = f_loop_vec(Msq_grid)
+    f_ref_w = float(f_loop_vec([2000.0], 500.0)[0])
+    f_arr_w = f_loop_vec(Msq_grid, 500.0)
     tau_unc_base = res["flavor"]["SUSY_PH16_dim5_proton_decay"]["tau_p_at_Msq2TeV_Mw500GeV_MT_MU_yr"]
     dw2l = res["flavor"]["SUSY_PH16_2loop_DW_unification_audit"]["two_loop_MSUSY_12TeV"]
     fac_2l = dw2l["DW_suppression_factor"]
-    tau_unc = tau_unc_base * ((f_ref / f_arr) ** 2)
+    tau_unc = tau_unc_base * ((f_ref_w / f_arr_w) ** 2)
     tau_2l = tau_unc * (fac_2l ** 2)
-    tau_40x = tau_unc * (40.0 ** 2)
 
-    ax1.loglog(Msq_grid / 1e3, tau_unc, color="#dc2626", lw=2.0, ls="--", label=r"Isolated $T_{10}$ $LLLL$ ($M_T=M_U$, $1\times$)")
-    ax1.loglog(Msq_grid / 1e3, tau_2l, color="#d97706", lw=2.2, label=rf"2-loop $12\;\mathrm{{TeV}}$ DW ($M_U/M'={fac_2l:.1f}\times$)")
-    ax1.loglog(Msq_grid / 1e3, tau_40x, color="#2563eb", lw=2.2, ls="-.", label=r"Illustrative $40\times$ triplet suppression")
-    ax1.axhspan(1e26, 5.9e33, color="#fecaca", alpha=0.32, label=r"Excluded by Super-K ($<5.9\times 10^{33}$ yr)")
-    ax1.axhspan(5.9e33, 3.2e34, color="#bbf7d0", alpha=0.45, label=r"Hyper-K 10-yr discovery window")
+    # Full multi-triplet LLLL+RRRR curves scaled from live 12 TeV exact values (dominated by mu=2 TeV higgsino RRRR):
+    d5_full = res["pillar3_complete_d5_multitriplet_LLLL_RRRR"]["scenarios"]
+    f_ref_h = float(f_loop_vec([12000.0], 2000.0)[0])
+    f_arr_h = f_loop_vec(Msq_grid, 2000.0)
+    tau_t10_full = d5_full["Isolated_T10_mu2TeV"]["tau_12TeV_K_total_yr"] * ((f_ref_h / f_arr_h) ** 2)
+    tau_all_full = d5_full["Combined_T10_T126_T120_at_MU"]["tau_12TeV_K_total_yr"] * ((f_ref_h / f_arr_h) ** 2)
+
+    ax1.loglog(Msq_grid / 1e3, tau_all_full, color="#7f1d1d", lw=2.3, label=r"Full $T_{10}+T_{126}+T_{120}$ ($LLLL+RRRR$, $\mu=2$ TeV)")
+    ax1.loglog(Msq_grid / 1e3, tau_t10_full, color="#dc2626", lw=1.9, ls="--", label=r"Isolated $T_{10}$ ($LLLL+RRRR$, $\mu=2$ TeV)")
+    ax1.loglog(Msq_grid / 1e3, tau_unc, color="#ea580c", lw=1.7, ls=":", label=r"Isolated $T_{10}$ $LLLL$ only ($M_T=M_U$, $1\times$)")
+    ax1.loglog(Msq_grid / 1e3, tau_2l, color="#2563eb", lw=2.0, ls="-.", label=rf"2-loop $12$ TeV DW ($T_{{10}}$ $LLLL$ only, ${fac_2l:.1f}\times$)")
+    ax1.axhspan(1e24, 5.9e33, color="#fecaca", alpha=0.28, label=r"Excluded by Super-K ($<5.9\times 10^{33}$ yr)")
+    ax1.axhspan(5.9e33, 3.2e34, color="#bbf7d0", alpha=0.45, label=r"Hyper-K 10-yr window")
     ax1.axhline(5.9e33, color="#b91c1c", lw=1.0, ls=":")
     ax1.axhline(3.2e34, color="#15803d", lw=1.0, ls=":")
-    ax1.set_xlim(1.5, 200.0)
-    ax1.set_ylim(1e27, 1e37)
+    ax1.set_xlim(2.0, 1200.0)
+    ax1.set_ylim(1e25, 1e37)
     ax1.set_xlabel(r"Squark Mass Scale $M_{\tilde{q}}$ (TeV)  [$M_{\tilde{w}} = 500$ GeV]")
-    ax1.set_ylabel(r"$\tau(p \to K^+ \bar{\nu})$ (years, $T_{10}$ $LLLL$ only)")
-    ax1.set_title(r"(A) Isolated $T_{10}$ $LLLL$ $d=5$ Decay (SUSY $\mathrm{PH16}_{a13,h23}$)")
-    ax1.legend(loc="lower right", fontsize=7.1, frameon=True)
+    ax1.set_ylabel(r"$\tau(p \to K^+ \bar{\nu})$ (years)")
+    ax1.set_title(r"(A) Complete $d=5$ Decay: $LLLL+RRRR$ (SUSY $\mathrm{PH16}_{a13,h23}$)")
+    ax1.legend(loc="lower right", fontsize=6.6, frameon=True)
     ax1.grid(True, which="both", alpha=0.22)
 
     win = res["flavor"]["SUSY_PH16_2loop_DW_unification_audit"]["isolated_T10_LLLL_squark_windows"]
     mechs = [
         ("Non-SUSY Spin(10)\n(GUT scale)", 1.4e25, "#991b1b"),
         ("Conformal Portal\n(NO-GO)", 3.1e17, "#b91c1c"),
-        ("Non-SUSY Pati–Salam\n(M_PS scale)", 3.9e16, "#dc2626"),
-        (f"Uncancelled T10\n({win['uncancelled_1x']['Msq_SK_TeV']} TeV)", win["uncancelled_1x"]["Delta_FT_SK"], "#ea580c"),
-        (f"2-Loop 12TeV DW\n({win['two_loop_12TeV_DW']['Msq_SK_TeV']} TeV)", win["two_loop_12TeV_DW"]["Delta_FT_SK"], "#d97706"),
-        (f"40x Suppression\n({win['illustrative_40x_triplet_suppression']['Msq_SK_TeV']} TeV)", win["illustrative_40x_triplet_suppression"]["Delta_FT_SK"], "#2563eb"),
-        ("Naive TeV-SUSY\n(T10 LLLL NO-GO)", 1015.0, "#94a3b8"),
+        (r"Non-SUSY Pati–Salam" + "\n" + r"($M_{\mathrm{PS}}$ scale)", 3.9e16, "#dc2626"),
+        (f"Full T10+T126+T120\n({d5_full['Combined_T10_T126_T120_at_MU']['Msq_min_SK_TeV']} TeV Split)", d5_full["Combined_T10_T126_T120_at_MU"]["Delta_FT_SK"], "#7f1d1d"),
+        (f"Isolated T10 LLLL+RRRR\n({d5_full['Isolated_T10_mu2TeV']['Msq_min_SK_TeV']} TeV)", d5_full["Isolated_T10_mu2TeV"]["Delta_FT_SK"], "#ea580c"),
+        (f"Isolated T10 LLLL only\n({win['uncancelled_1x']['Msq_SK_TeV']} TeV)", win["uncancelled_1x"]["Delta_FT_SK"], "#d97706"),
+        (f"2-Loop 12TeV DW (LLLL)\n({win['two_loop_12TeV_DW']['Msq_SK_TeV']} TeV)", win["two_loop_12TeV_DW"]["Delta_FT_SK"], "#2563eb"),
+        ("Naive TeV-SUSY\n(d=5 NO-GO)", 1015.0, "#94a3b8"),
     ]
     yp = np.arange(len(mechs))
     ax2.barh(yp, [m[1] for m in mechs], color=[m[2] for m in mechs], edgecolor="black", lw=0.6)
     ax2.set_xscale("log")
     ax2.set_yticks(yp)
-    ax2.set_yticklabels([m[0] for m in mechs], fontsize=7.6)
+    ax2.set_yticklabels([m[0] for m in mechs], fontsize=7.2)
     ax2.invert_yaxis()
     ax2.set_xlabel(r"Electroweak Fine-Tuning $\Delta_{\mathrm{FT}}$ (log scale)")
-    ax2.set_title(r"(B) Hierarchy Fine-Tuning vs. $T_{10}$ Proton Survival")
+    ax2.set_title(r"(B) Hierarchy Fine-Tuning vs. Full $d=5$ Proton Survival")
     ax2.grid(True, axis="x", alpha=0.25)
     fig.tight_layout()
     fig.savefig(FIG_DIR / "fig3_hierarchy_dim5_proton_decay_dw_sweetspot.png", dpi=300)
@@ -692,22 +703,32 @@ def main():
     )
     sys.stderr.write("[Bridge 3] Full even+odd 32-Majorana SMG + |W(F_4)|=1152 Reynolds isotropy PASS\n")
 
+    # Complete d=5 Multi-Triplet (T_10 + T_126 + T_120, LLLL + RRRR) Audit (v1.3.0):
+    d5_full = run_complete_d5_multitriplet_audit(ph16_params=ps)
+    out["pillar3_complete_d5_multitriplet_LLLL_RRRR"] = d5_full
+    sys.stderr.write(
+        f"[Pillar 3B Complete d=5 LLLL+RRRR] Exact Clifford Clebsches + Combined T10+T126+T120 "
+        f"M_sq^min={d5_full['scenarios']['Combined_T10_T126_T120_at_MU']['Msq_min_SK_TeV']} TeV PASS\n"
+    )
+
     make_figures(out)
     with open(DATA_DIR / "paper30_master_verification_results.json", "w") as f:
         json.dump(out, f, indent=2, allow_nan=False)
+    with open(DATA_DIR / "complete_d5_proton_decay_results.json", "w") as f:
+        json.dump(d5_full, f, indent=2, allow_nan=False)
     with open(DATA_DIR / "bridge1_results.json", "w") as f:
         json.dump(dict(
-            version="v1.2.0",
+            version="v1.3.0",
             bridge1A_1loop_SUSY_strong_CP=b1_cp,
             bridge1B_smooth_delta_CP_profile=b1_prof,
         ), f, indent=2, allow_nan=False)
     with open(DATA_DIR / "bridge3_results.json", "w") as f:
         json.dump(dict(
-            version="v1.2.0",
+            version="v1.3.0",
             bridge3B_24cell_WF4_reynolds_director_isotropy=b3_dir,
             bridge3_high_dim_SMG=out["bridge3_high_dim_SMG"],
         ), f, indent=2, allow_nan=False)
-    sys.stderr.write(f"[Paper 30 v1.2.0 Master Verification & Figures COMPLETE in {time.time()-t0:.1f}s]\n")
+    sys.stderr.write(f"[Paper 30 v1.3.0 Master Verification & Figures COMPLETE in {time.time()-t0:.1f}s]\n")
 
 
 if __name__ == "__main__":

@@ -2109,5 +2109,168 @@
         }
       ]
     }
+  },
+  "pillar3_complete_d5_multitriplet_LLLL_RRRR": {
+    "version": "v1.3.0",
+    "clifford_triplet_clebsch_ratios": {
+      "T10_611": {
+        "QQ": 1.0,
+        "QL": 1.0,
+        "ue": 1.0,
+        "ud": 1.0
+      },
+      "T126_611": {
+        "QQ": 1.732051,
+        "QL": 1.732051,
+        "ue": 1.732051,
+        "ud": 1.732051,
+        "exact_symbolic": "sqrt(3) -> 9x decay rate boost vs H_d(15,2,2)"
+      },
+      "T126_10bar13": {
+        "QQ": 0.0,
+        "ue": 2.44949,
+        "exact_symbolic": "sqrt(6)"
+      },
+      "T120_611": {
+        "QQ": 0.0,
+        "QL": 0.0,
+        "ue": 1.414214,
+        "ud": 1.414214,
+        "exact_symbolic": "QQ==0, QL==0, ue==ud==sqrt(2) (pure RRRR!)"
+      },
+      "T120_10_10bar": {
+        "QQ": 0.0,
+        "ud": 0.0,
+        "QL": 1.414214,
+        "exact_symbolic": "QQ==0, ud==0, QL==sqrt(2) (off-diagonal interference only)"
+      }
+    },
+    "su5_LLLL_RRRR_calibration": {
+      "SU5_tb3_1TeV": {
+        "tau_K_LLLL_yr": 1.6324134162634908e+30,
+        "tau_K_RRRR_yr": 1.8364801429922934e+31,
+        "tau_K_total_yr": 1.747814408429992e+30,
+        "tau_pi_total_yr": 1.171634286154394e+31,
+        "dominant_K_LLLL": "nu_mu",
+        "dominant_K_RRRR": "nu_tau"
+      },
+      "SU5_tb50_10TeV": {
+        "tau_K_LLLL_yr": 9.677451738222146e+30,
+        "tau_K_RRRR_yr": 1.2886445751930685e+29,
+        "tau_K_total_yr": 1.351691696704508e+29,
+        "tau_pi_total_yr": 4.4977143488629146e+29,
+        "dominant_K_LLLL": "nu_mu",
+        "dominant_K_RRRR": "nu_tau"
+      }
+    },
+    "simultaneous_unitarity_yukawas": {
+      "Uu1": 0.955,
+      "Vd1": 0.321,
+      "Uu2": 0.2706,
+      "Vd2": 0.86,
+      "Uu34": 0.1172,
+      "Vd34": 0.38,
+      "sum_Uu_sq": 0.999,
+      "sum_Vd_sq": 0.987,
+      "max_Y10": 0.5595,
+      "max_Y126": 0.2689,
+      "max_Y120": 0.0582,
+      "f2_over_f3_vs_h22_over_h33": 21.38
+    },
+    "scenarios": {
+      "Isolated_T10_mu2TeV": {
+        "tau_12TeV_K_LLLL_yr": 2.8176130543189425e+30,
+        "tau_12TeV_K_RRRR_yr": 2.8559809756933333e+28,
+        "tau_12TeV_K_total_yr": 3.422501036239841e+28,
+        "tau_12TeV_pi_total_yr": 2.0553909138464085e+29,
+        "dominant_K_LLLL": "nu_tau",
+        "dominant_K_RRRR": "nu_tau",
+        "Msq_min_SK_TeV": 255.2,
+        "Delta_FT_SK": 13761054.3
+      },
+      "Isolated_T10_mu500GeV": {
+        "tau_12TeV_K_LLLL_yr": 2.8176130543189425e+30,
+        "tau_12TeV_K_RRRR_yr": 3.968888040749799e+29,
+        "tau_12TeV_K_total_yr": 8.166227546531938e+29,
+        "tau_12TeV_pi_total_yr": 4.9309563495640965e+29,
+        "dominant_K_LLLL": "nu_tau",
+        "dominant_K_RRRR": "nu_tau",
+        "Msq_min_SK_TeV": 111.1,
+        "Delta_FT_SK": 2699704.2
+      },
+      "DW40x_T10_only_mu2TeV": {
+        "tau_12TeV_K_LLLL_yr": 4.508180886910308e+33,
+        "tau_12TeV_K_RRRR_yr": 4.569569561109335e+31,
+        "tau_12TeV_K_total_yr": 5.476001657983745e+31,
+        "tau_12TeV_pi_total_yr": 3.288625462154253e+32,
+        "dominant_K_LLLL": "nu_tau",
+        "dominant_K_RRRR": "nu_tau",
+        "Msq_min_SK_TeV": 40.1,
+        "Delta_FT_SK": 365596.6
+      },
+      "DW40x_T10_only_mu500GeV": {
+        "tau_12TeV_K_LLLL_yr": 4.508180886910308e+33,
+        "tau_12TeV_K_RRRR_yr": 6.350220865199681e+32,
+        "tau_12TeV_K_total_yr": 1.3065964074451104e+33,
+        "tau_12TeV_pi_total_yr": 7.889530159302556e+32,
+        "dominant_K_LLLL": "nu_tau",
+        "dominant_K_RRRR": "nu_tau",
+        "Msq_min_SK_TeV": 17.5,
+        "Delta_FT_SK": 72132.5
+      },
+      "Isolated_T126_611_at_MU": {
+        "tau_12TeV_K_LLLL_yr": 5.421129835082557e+28,
+        "tau_12TeV_K_RRRR_yr": 1.4460164725670916e+28,
+        "tau_12TeV_K_total_yr": 1.5187088723959048e+28,
+        "tau_12TeV_pi_total_yr": 3.774499235225542e+27,
+        "dominant_K_LLLL": "nu_mu",
+        "dominant_K_RRRR": "nu_tau",
+        "Msq_min_SK_TeV": 310.6,
+        "Delta_FT_SK": 20218911.7
+      },
+      "Isolated_T120_611_at_MU": {
+        "tau_12TeV_K_LLLL_yr": null,
+        "tau_12TeV_K_RRRR_yr": 6.22215804461704e+26,
+        "tau_12TeV_K_total_yr": 6.22215804461704e+26,
+        "tau_12TeV_pi_total_yr": 2.7758271010708037e+27,
+        "dominant_K_LLLL": "nu_e",
+        "dominant_K_RRRR": "nu_tau",
+        "Msq_min_SK_TeV": 693.0,
+        "Delta_FT_SK": 97271094.4
+      },
+      "Combined_T10_T126_T120_at_MU": {
+        "tau_12TeV_K_LLLL_yr": 5.132947226320015e+28,
+        "tau_12TeV_K_RRRR_yr": 1.1275275121042638e+27,
+        "tau_12TeV_K_total_yr": 1.1327028365279001e+27,
+        "tau_12TeV_pi_total_yr": 8.97192720645342e+26,
+        "dominant_K_LLLL": "nu_mu",
+        "dominant_K_RRRR": "nu_tau",
+        "Msq_min_SK_TeV": 596.4,
+        "Delta_FT_SK": 72519105.1
+      }
+    },
+    "DMM_11channel_cancellation_12TeV": {
+      "active_PS_channels": [
+        "(10,10)",
+        "(10,126_6)",
+        "(10,120_6)",
+        "(10,120_10)",
+        "(126_6,10)",
+        "(126_6,126_6)",
+        "(126_6,120_6)",
+        "(126_6,120_10)",
+        "(120_6,10)",
+        "(120_6,126_6)",
+        "(120_6,120_6)"
+      ],
+      "complex_rank": 6,
+      "complex_residual_norm": 5.789097203832628e-45,
+      "complex_max_abs_MTinv_MU": 1.0,
+      "required_amplitude_cancellation_vs_T10_SK_12TeV": 415.2,
+      "real_Parity_max_abs_MTinv_MU": 11.32,
+      "real_Parity_12TeV_tau_K_yr": 8.704922618978225e+34,
+      "real_Parity_12TeV_tau_pi_yr": 4.573252511149698e+34
+    },
+    "verdict": "PROVEN NO-GO for un-fine-tuned 12-30 TeV Mini-Split SUSY PH16_a13_h23: at tan(beta)=50, RRRR beats LLLL by 99x even on isolated T_10 (M_sq^min=255.2 TeV at mu=2 TeV), and T_126(6,1,1) (sqrt(3) Clifford Clebsch, M_sq^min=310.6 TeV) + T_120(6,1,1) (pure RRRR, M_sq^min=693.0 TeV) defeat DW splitting of 10_H alone (combined uncancelled M_sq^min=596.4 TeV, Delta_FT=7.25e7). Clean surviving routes: (i) Non-SUSY PH16_a13_h23 (zero d=5 proton decay), (ii) High-Scale Split SUSY (M_sq >= 600 TeV), or (iii) ~400x fine-tuned 11-channel DMM cancellation."
   }
 }

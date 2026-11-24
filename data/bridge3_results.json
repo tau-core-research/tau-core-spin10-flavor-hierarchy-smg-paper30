@@ -1,5 +1,5 @@
 {
-  "version": "v1.2.0",
+  "version": "v1.3.0",
   "bridge3B_24cell_WF4_reynolds_director_isotropy": {
     "W_F4_order": 1152,
     "reynolds_invariant_dims": {
