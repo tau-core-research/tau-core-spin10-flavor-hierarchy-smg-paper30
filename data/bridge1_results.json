@@ -1,0 +1,165 @@
+{
+  "bridge1A_exact_1loop_SUSY_strong_CP": {
+    "B1_Parity_Universal_A0_0": {
+      "alpha3_at_Msq": 0.0783,
+      "M3_at_Msq_GeV": 2432.9,
+      "squark_up_range_GeV": [
+        7449.5,
+        12188.8
+      ],
+      "squark_down_range_GeV": [
+        8520.8,
+        12188.8
+      ],
+      "Tu_RG_nonHermiticity": 0.006259,
+      "Td_RG_nonHermiticity": 0.01024,
+      "theta_QCD_1loop_Yukawa_RG_rad": 2.731e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 1.728e-13,
+      "neutron_EDM_bound_rad": 1.3e-10,
+      "passes_nEDM": true
+    },
+    "B2_Parity_Universal_A0_12TeV": {
+      "alpha3_at_Msq": 0.0783,
+      "M3_at_Msq_GeV": 2432.9,
+      "squark_up_range_GeV": [
+        6982.8,
+        12188.8
+      ],
+      "squark_down_range_GeV": [
+        8128.7,
+        12188.8
+      ],
+      "Tu_RG_nonHermiticity": 0.02355,
+      "Td_RG_nonHermiticity": 0.02547,
+      "theta_QCD_1loop_Yukawa_RG_rad": 8.887e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 4.655e-13,
+      "neutron_EDM_bound_rad": 1.3e-10,
+      "passes_nEDM": true
+    },
+    "B3_Parity_NonUniversal_Hermitian_dA0p5": {
+      "alpha3_at_Msq": 0.0783,
+      "M3_at_Msq_GeV": 2432.9,
+      "squark_up_range_GeV": [
+        6900.7,
+        12188.8
+      ],
+      "squark_down_range_GeV": [
+        7983.7,
+        12188.8
+      ],
+      "Tu_RG_nonHermiticity": 0.02111,
+      "Td_RG_nonHermiticity": 0.01861,
+      "theta_QCD_1loop_Yukawa_RG_rad": 2.024e-14,
+      "theta_QCD_full_6x6_gluino_loop_rad": 3.282e-08,
+      "neutron_EDM_bound_rad": 1.3e-10,
+      "passes_nEDM": false
+    },
+    "B4_SoftCP_Violation_phiA_1e-6": {
+      "alpha3_at_Msq": 0.0783,
+      "M3_at_Msq_GeV": 2432.9,
+      "squark_up_range_GeV": [
+        6982.8,
+        12188.8
+      ],
+      "squark_down_range_GeV": [
+        8128.7,
+        12188.8
+      ],
+      "Tu_RG_nonHermiticity": 0.02355,
+      "Td_RG_nonHermiticity": 0.02547,
+      "theta_QCD_1loop_Yukawa_RG_rad": 1.413e-14,
+      "theta_QCD_full_6x6_gluino_loop_rad": 1.31e-08,
+      "neutron_EDM_bound_rad": 1.3e-10,
+      "passes_nEDM": false
+    },
+    "B5_SoftCP_Violation_phiM3_1e-10": {
+      "alpha3_at_Msq": 0.0783,
+      "M3_at_Msq_GeV": 2432.9,
+      "squark_up_range_GeV": [
+        7449.5,
+        12188.8
+      ],
+      "squark_down_range_GeV": [
+        8520.8,
+        12188.8
+      ],
+      "Tu_RG_nonHermiticity": 0.006259,
+      "Td_RG_nonHermiticity": 0.01024,
+      "theta_QCD_1loop_Yukawa_RG_rad": 3.726e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 2.898e-10,
+      "neutron_EDM_bound_rad": 1.3e-10,
+      "passes_nEDM": false
+    }
+  },
+  "bridge1B_SUSY_PH16_delta_CP_profile": [
+    {
+      "target_deg": 0,
+      "achieved_deg": 2.2,
+      "chi2_18obs": 1.3083,
+      "max_abs_pull": 1.016,
+      "sin2_th23": 0.5015,
+      "sum_m_nu_eV": 0.061,
+      "m_bb_meV": 1.037,
+      "max_Y": 0.5344
+    },
+    {
+      "target_deg": 45,
+      "achieved_deg": 47.0,
+      "chi2_18obs": 3350.943,
+      "max_abs_pull": 39.339,
+      "sin2_th23": 0.0159,
+      "sum_m_nu_eV": 0.05261,
+      "m_bb_meV": 0.012,
+      "max_Y": 0.5651
+    },
+    {
+      "target_deg": 90,
+      "status": "no_perturbative_solution_within_10deg"
+    },
+    {
+      "target_deg": 135,
+      "achieved_deg": 128.5,
+      "chi2_18obs": 376.2405,
+      "max_abs_pull": 10.939,
+      "sin2_th23": 0.1777,
+      "sum_m_nu_eV": 0.05945,
+      "m_bb_meV": 0.161,
+      "max_Y": 0.4556
+    },
+    {
+      "target_deg": 180,
+      "achieved_deg": 170.4,
+      "chi2_18obs": 105.825,
+      "max_abs_pull": 5.541,
+      "sin2_th23": 0.2815,
+      "sum_m_nu_eV": 0.05858,
+      "m_bb_meV": 1.025,
+      "max_Y": 0.4809
+    },
+    {
+      "target_deg": 225,
+      "achieved_deg": 230.0,
+      "chi2_18obs": 636.3952,
+      "max_abs_pull": 12.616,
+      "sin2_th23": 0.0001,
+      "sum_m_nu_eV": 0.05701,
+      "m_bb_meV": 0.075,
+      "max_Y": 0.5374
+    },
+    {
+      "target_deg": 270,
+      "status": "no_perturbative_solution_within_10deg"
+    },
+    {
+      "target_deg": 315,
+      "achieved_deg": 313.0,
+      "chi2_18obs": 142.6338,
+      "max_abs_pull": 8.288,
+      "sin2_th23": 0.2929,
+      "sum_m_nu_eV": 0.06168,
+      "m_bb_meV": 1.14,
+      "max_Y": 0.5494
+    }
+  ],
+  "elapsed_s": 10.66
+}

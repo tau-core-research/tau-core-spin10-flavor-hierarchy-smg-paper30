@@ -1,0 +1,340 @@
+{
+  "bridge3B_24cell_director_isotropy": {
+    "D4_roots_count": 24,
+    "rank2_O4_isotropy_max_err": 8.881784197001252e-16,
+    "rank4_O4_isotropy_max_err": 4.440892098500626e-16,
+    "rank4_AeST_director_matching_err": 7.105427357601002e-15,
+    "rank6_e_dot_n_values": {
+      "axis_1000": 1.5,
+      "diag_1111": 1.5,
+      "face_1100": 2.25,
+      "O4_isotropic_average": 1.875,
+      "relative_rank6_anisotropy": 0.2
+    },
+    "verdict": "PROVEN: ALL rank-4 AeST / Stueckelberg-Lorenz director operators (c_1, c_2, c_3) are 100% O(4)-isotropic on the 24-cell lattice (0.0 anisotropy); first W(F_4) anisotropy enters ONLY at rank-6 (c_4-type acceleration terms), so Paper 28's pure c_2 (nabla.u)^2 Stueckelberg-Lorenz sector is strictly protected!"
+  },
+  "bridge3A_1plus1D_L4_dim65536": {
+    "label": "1+1D_L4_periodic",
+    "L_sites": 4,
+    "n_majoranas": 32,
+    "full_hilbert_dim": 65536,
+    "even_parity_dim": 32768,
+    "peak_susceptibility_gc": 0.25,
+    "peak_susceptibility_val": 237.15,
+    "max_bilinear_VEV_unique_GS": 3.19e-15,
+    "phase_scan": [
+      {
+        "g": 0.0,
+        "E0": -16.0,
+        "gap": 0.0,
+        "deg0_in_even": 4,
+        "max_bilinear_VEV": 0.0996,
+        "entanglement_S1": 2.73194
+      },
+      {
+        "g": 0.08,
+        "E0": -15.964258,
+        "gap": 0.66391,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 3.19e-15,
+        "entanglement_S1": 2.40746
+      },
+      {
+        "g": 0.14,
+        "E0": -16.166438,
+        "gap": 1.195794,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.51e-16,
+        "entanglement_S1": 2.26483
+      },
+      {
+        "g": 0.18,
+        "E0": -16.485932,
+        "gap": 1.574285,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 2.79e-17,
+        "entanglement_S1": 2.09629
+      },
+      {
+        "g": 0.2,
+        "E0": -16.729384,
+        "gap": 1.776216,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 4.86e-17,
+        "entanglement_S1": 1.9738
+      },
+      {
+        "g": 0.22,
+        "E0": -17.046032,
+        "gap": 1.992153,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 4.17e-17,
+        "entanglement_S1": 1.81874
+      },
+      {
+        "g": 0.25,
+        "E0": -17.685818,
+        "gap": 2.356185,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 2.78e-17,
+        "entanglement_S1": 1.52835
+      },
+      {
+        "g": 0.3,
+        "E0": -19.226421,
+        "gap": 3.111303,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.2e-16,
+        "entanglement_S1": 1.00453
+      },
+      {
+        "g": 0.4,
+        "E0": -23.557867,
+        "gap": 5.045359,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.73e-16,
+        "entanglement_S1": 0.38558
+      },
+      {
+        "g": 0.55,
+        "E0": -31.236064,
+        "gap": 8.107989,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 2.43e-17,
+        "entanglement_S1": 0.11202
+      },
+      {
+        "g": 0.75,
+        "E0": -42.095804,
+        "gap": 11.828652,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 2.5e-16,
+        "entanglement_S1": 0.02119
+      },
+      {
+        "g": 1.0,
+        "E0": -56.0,
+        "gap": 16.0,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 6.94e-17,
+        "entanglement_S1": -0.0
+      }
+    ]
+  },
+  "bridge3A_2plus1D_piFlux_plaquette_dim65536": {
+    "label": "2+1D_2x2_piFlux_plaquette",
+    "L_sites": 4,
+    "n_majoranas": 32,
+    "full_hilbert_dim": 65536,
+    "even_parity_dim": 32768,
+    "peak_susceptibility_gc": 0.25,
+    "peak_susceptibility_val": 471.92,
+    "max_bilinear_VEV_unique_GS": 1.94e-16,
+    "phase_scan": [
+      {
+        "g": 0.0,
+        "E0": -22.627417,
+        "gap": 5.656854,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 5.55e-17,
+        "entanglement_S1": 2.77259
+      },
+      {
+        "g": 0.08,
+        "E0": -20.878364,
+        "gap": 4.688475,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.06e-16,
+        "entanglement_S1": 2.76699
+      },
+      {
+        "g": 0.14,
+        "E0": -19.699185,
+        "gap": 3.913086,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 8.46e-17,
+        "entanglement_S1": 2.742
+      },
+      {
+        "g": 0.18,
+        "E0": -19.043498,
+        "gap": 3.387859,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 6.09e-17,
+        "entanglement_S1": 2.68859
+      },
+      {
+        "g": 0.2,
+        "E0": -18.787089,
+        "gap": 3.138994,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 5.33e-17,
+        "entanglement_S1": 2.63148
+      },
+      {
+        "g": 0.22,
+        "E0": -18.607986,
+        "gap": 2.920232,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 4.34e-17,
+        "entanglement_S1": 2.53039
+      },
+      {
+        "g": 0.25,
+        "E0": -18.57065,
+        "gap": 2.720925,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.68e-16,
+        "entanglement_S1": 2.22082
+      },
+      {
+        "g": 0.3,
+        "E0": -19.452266,
+        "gap": 3.02769,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.94e-16,
+        "entanglement_S1": 1.30345
+      },
+      {
+        "g": 0.4,
+        "E0": -23.5737,
+        "gap": 5.001664,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 8.55e-17,
+        "entanglement_S1": 0.40372
+      },
+      {
+        "g": 0.55,
+        "E0": -31.237019,
+        "gap": 8.110151,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.39e-16,
+        "entanglement_S1": 0.11274
+      },
+      {
+        "g": 0.75,
+        "E0": -42.095832,
+        "gap": 11.829034,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.53e-16,
+        "entanglement_S1": 0.02121
+      },
+      {
+        "g": 1.0,
+        "E0": -56.0,
+        "gap": 16.0,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.25e-16,
+        "entanglement_S1": -0.0
+      }
+    ]
+  },
+  "bridge3A_K4_tetrahedron_z3_dim65536": {
+    "label": "3D_K4_tetrahedron_z3",
+    "L_sites": 4,
+    "n_majoranas": 32,
+    "full_hilbert_dim": 65536,
+    "even_parity_dim": 32768,
+    "peak_susceptibility_gc": 0.22,
+    "peak_susceptibility_val": 482.96,
+    "max_bilinear_VEV_unique_GS": 1.94e-16,
+    "phase_scan": [
+      {
+        "g": 0.0,
+        "E0": -22.627417,
+        "gap": 1.656854,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 9.09e-16,
+        "entanglement_S1": 2.77259
+      },
+      {
+        "g": 0.08,
+        "E0": -20.878432,
+        "gap": 1.304302,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.25e-16,
+        "entanglement_S1": 2.76696
+      },
+      {
+        "g": 0.14,
+        "E0": -19.701164,
+        "gap": 1.101077,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.11e-16,
+        "entanglement_S1": 2.74082
+      },
+      {
+        "g": 0.18,
+        "E0": -19.057861,
+        "gap": 0.591376,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.11e-16,
+        "entanglement_S1": 2.67634
+      },
+      {
+        "g": 0.2,
+        "E0": -18.825394,
+        "gap": 0.39954,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.39e-16,
+        "entanglement_S1": 2.59197
+      },
+      {
+        "g": 0.22,
+        "E0": -18.707526,
+        "gap": 0.311053,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.53e-16,
+        "entanglement_S1": 2.41104
+      },
+      {
+        "g": 0.25,
+        "E0": -18.892943,
+        "gap": 0.518528,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.46e-16,
+        "entanglement_S1": 1.87436
+      },
+      {
+        "g": 0.3,
+        "E0": -20.137033,
+        "gap": 1.736739,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 7.98e-17,
+        "entanglement_S1": 1.12808
+      },
+      {
+        "g": 0.4,
+        "E0": -24.10475,
+        "gap": 5.134314,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 9.89e-17,
+        "entanglement_S1": 0.5016
+      },
+      {
+        "g": 0.55,
+        "E0": -31.453751,
+        "gap": 8.128762,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 6.07e-17,
+        "entanglement_S1": 0.15805
+      },
+      {
+        "g": 0.75,
+        "E0": -42.143741,
+        "gap": 11.84103,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.54e-16,
+        "entanglement_S1": 0.03041
+      },
+      {
+        "g": 1.0,
+        "E0": -56.0,
+        "gap": 16.0,
+        "deg0_in_even": 1,
+        "max_bilinear_VEV": 1.94e-16,
+        "entanglement_S1": -0.0
+      }
+    ]
+  }
+}

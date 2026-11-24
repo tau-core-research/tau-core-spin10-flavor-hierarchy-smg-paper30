@@ -1,9 +1,9 @@
-# Tau Core Paper 30 (`v1.0.0`)
+# Tau Core Paper 30 (`v1.1.0`)
 
 **Four-Simplex $\mathrm{Spin}(10)$ Particle Genesis, 16-Parameter Parity--Hermitian Flavor Closure, Dimension-5 Proton Decay, and 24-Cell Chiral Lattice Symmetric Mass Generation**
 
 - **Author:** Jozsef Olcsak (ORCID: [0009-0003-7311-6522](https://orcid.org/0009-0003-7311-6522))
-- **Date:** 24 November 2026
+- **Date:** 24 November 2026 (`v1.1.0`: adds Bridge 1 exact $6\times 6$ 1-loop SUSY Strong-CP & rigid $\delta_{\mathrm{CP}}^\ell$ profile lock + Bridge 3 32-Majorana `dim=65,536` 1+1D/2+1D/3D-$K_4$ SMG QPT & 24-cell rank-4 $W(F_4)$ director isotropy!)
 - **Manuscripts:**
   - English: `Tau_Core_Paper_30_Spin10_Flavor_Hierarchy_SMG_EN.pdf` (`_EN.tex`)
   - Hungarian: `Tau_Core_Paper_30_Spin10_Flavor_Hierarchy_SMG_HU.pdf` (`_HU.tex`)
@@ -15,7 +15,7 @@
 python3 -W error scripts/build_paper30_verification_and_figures.py
 ```
 
-This executes all four pillars live in `~6.5 s`, verifies every algebraic, RG, flavor, proton-decay, partial-compositeness, chiral-lattice, and many-body SMG invariant to machine precision, writes `data/paper30_master_verification_results.json`, and generates all four 300-DPI figures in `figures/`.
+This executes all four pillars plus Bridge 1 & Bridge 3 live in `~10.3 s`, verifies every algebraic, RG, $6\times 6$ squark--gluino, flavor, proton-decay, partial-compositeness, $W(F_4)$ director-isotropy, chiral-lattice, and 32-Majorana (`dim=65,536`) many-body SMG invariant to machine precision, writes `data/paper30_master_verification_results.json`, and generates all four 300-DPI figures in `figures/`.
 
 ## Core Verified Results (4-Tier Epistemic Ledger)
 

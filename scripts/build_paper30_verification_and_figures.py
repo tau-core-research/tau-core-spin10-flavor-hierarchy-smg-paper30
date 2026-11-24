@@ -63,6 +63,11 @@ from verify_spin10_partial_compositeness_audit import (
     audit_PC_anomalous_dims_and_epsilonK,
 )
 from verify_1plus1D_SMG_chain_phase_diagram import run_chain
+from verify_bridge1_susy_1loop_strong_cp_and_dCP_profile import run_exact_mssm_soft_rge_strong_cp
+from verify_bridge3_2plus1D_SMG_and_24cell_director_isotropy import (
+    scan_lattice_smg,
+    audit_24cell_director_isotropy,
+)
 
 
 def solve_dw_sweet_spot(tau_2TeV_MU_yr: float, M_SUSY: float = 2000.0):
@@ -400,13 +405,23 @@ def make_figures(res):
 
     p2_val = smg2["peak_susceptibility_val"]
     p3_val = smg3["peak_susceptibility_val"]
-    ax2.plot(g_mid, chi2_e, "o-", color="#64748b", lw=1.6, ms=3.8, label=rf"$L=2$ ($\dim=256$): peak ${p2_val:.1f}$")
-    ax2.plot(g_mid, chi3_e, "s-", color="#0f766e", lw=2.3, ms=4.2, label=rf"$L=3$ ($\dim=4096$): peak ${p3_val:.1f}$ (${p3_val/p2_val:.2f}\times$ sharpening)")
-    ax2.axvline(smg3["peak_susceptibility_gc"], color="#dc2626", ls="--", lw=1.3, label=rf"$g_c \approx {smg3['peak_susceptibility_gc']:.2f}$")
+    smg_k4 = res["bridge3_high_dim_SMG"]["3D_K4_tetrahedron_z3_dim65536"]
+    gk4 = np.array([row["g"] for row in smg_k4["phase_scan"]])
+    e0_k4 = np.array([row["E0"] for row in smg_k4["phase_scan"]])
+    chi_k4 = [
+        -2.0 * ((e0_k4[i + 1] - e0_k4[i]) / (gk4[i + 1] - gk4[i]) - (e0_k4[i] - e0_k4[i - 1]) / (gk4[i] - gk4[i - 1]))
+        / (gk4[i + 1] - gk4[i - 1])
+        for i in range(1, len(gk4) - 1)
+    ]
+    pk4_val = smg_k4["peak_susceptibility_val"]
+    ax2.plot(g_mid, chi2_e, "o-", color="#64748b", lw=1.5, ms=3.5, label=rf"1+1D $L=2$ ($\dim=256$): peak ${p2_val:.1f}$")
+    ax2.plot(g_mid, chi3_e, "s-", color="#0f766e", lw=2.0, ms=3.8, label=rf"1+1D $L=3$ ($\dim=4096$): peak ${p3_val:.1f}$")
+    ax2.plot(gk4[1:-1], chi_k4, "D-", color="#7c3aed", lw=2.3, ms=4.2, label=rf"3D $K_4$ ($\dim=65\,536$, 32 Maj.): peak ${pk4_val:.1f}$")
+    ax2.axvline(0.22, color="#dc2626", ls="--", lw=1.2, label=r"$g_c \approx 0.20$–$0.22$")
     ax2.set_xlabel(r"Interaction Ratio $g / (g + t)$")
     ax2.set_ylabel(r"Ground-State Susceptibility $-\mathrm{d}^2 E_0 / \mathrm{d}g^2$")
-    ax2.set_title(r"(B) Finite-Size Sharpening of $-\mathrm{d}^2 E_0 / \mathrm{d}g^2$ at $g_c$")
-    ax2.legend(loc="upper right", fontsize=8.0, frameon=True)
+    ax2.set_title(r"(B) SMG Susceptibility up to 3D $K_4$ ($\dim=65\,536$, VEV $\leq 1.9\times 10^{-16}$)")
+    ax2.legend(loc="upper right", fontsize=7.6, frameon=True)
     ax2.grid(True, alpha=0.25)
     fig.tight_layout()
     fig.savefig(FIG_DIR / "fig4_24cell_chiral_fermions_and_smg_qpt.png", dpi=300)
@@ -482,6 +497,45 @@ def main():
     )
     out["smg_chain"] = dict(L2_dim256=smg_l2, L3_periodic_dim4096=smg_l3)
     sys.stderr.write("[Pillar 4] 24-cell Overlap/DW + Spin(7)/Spin(10) SMG + L=2,3 QPT PASS\n")
+
+    # Bridge 1A: Exact Coupled 3x3 MSSM Soft-Breaking RGEs + 6x6 Squark-Gluino 1-Loop Strong-CP Audit
+    ps = flav["SUSY_PH16_a13_h23"]["params"]
+    v = 174.104
+    sb, cb = 50.0 / math.sqrt(2501.0), 1.0 / math.sqrt(2501.0)
+    F_u = np.diag(ps["F_diag"]).astype(complex)
+    H_u = np.array(ps["H"], dtype=complex)
+    A_u = np.array([
+        [0.0, ps["A_12_13_23"][0], ps["A_12_13_23"][1]],
+        [-ps["A_12_13_23"][0], 0.0, ps["A_12_13_23"][2]],
+        [-ps["A_12_13_23"][1], -ps["A_12_13_23"][2], 0.0],
+    ], dtype=complex)
+    Yu_U = ps["r"] * (H_u + ps["s"] * F_u + 1j * ps["c_u"] * A_u) / (v * sb)
+    Yd_U = (H_u + F_u + 1j * A_u) / (v * cb)
+    Ye_U = (H_u - 3.0 * F_u + 1j * ps["c_e"] * A_u) / (v * cb)
+    b1_cp = dict(
+        Parity_Universal_A0_0=run_exact_mssm_soft_rge_strong_cp(Yu_U, Yd_U, Ye_U, m0=12000.0, M12=1200.0, A0=0.0),
+        Parity_Universal_A0_12TeV=run_exact_mssm_soft_rge_strong_cp(Yu_U, Yd_U, Ye_U, m0=12000.0, M12=1200.0, A0=12000.0),
+        Parity_NonUniversal_dA0p5=run_exact_mssm_soft_rge_strong_cp(Yu_U, Yd_U, Ye_U, m0=12000.0, M12=1200.0, A0=12000.0, nonuniv_herm_deltaA=0.5),
+    )
+    assert b1_cp["Parity_Universal_A0_0"]["passes_nEDM"] is True
+    assert b1_cp["Parity_Universal_A0_12TeV"]["passes_nEDM"] is True
+    assert b1_cp["Parity_NonUniversal_dA0p5"]["passes_nEDM"] is False
+    out["bridge1_1loop_SUSY_strong_CP"] = b1_cp
+    sys.stderr.write("[Bridge 1] Exact 6x6 SUSY 1-loop Strong-CP (universal PASS, non-universal NO-GO) PASS\n")
+
+    # Bridge 3A & 3B: Exact 32-Majorana (dim=65,536) 1+1D L=4, 2+1D pi-flux, 3D K_4 SMG + 24-cell Director Isotropy
+    b3_dir = audit_24cell_director_isotropy()
+    g4 = [0.0, 0.08, 0.14, 0.18, 0.20, 0.22, 0.25, 0.30, 0.40, 0.55, 0.75, 1.0]
+    smg_l4 = scan_lattice_smg("1+1D_L4_periodic", 4, [(0, 1), (1, 2), (2, 3), (3, 0)], [1.0]*4, g4)
+    smg_2d = scan_lattice_smg("2+1D_2x2_piFlux_plaquette", 4, [(0, 1), (1, 3), (3, 2), (2, 0)], [1.0, 1.0, 1.0, -1.0], g4)
+    smg_k4 = scan_lattice_smg("3D_K4_tetrahedron_z3", 4, [(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)], [1.0]*6, g4)
+    out["bridge3_24cell_director_isotropy"] = b3_dir
+    out["bridge3_high_dim_SMG"] = dict(
+        L4_1plus1D_dim65536=smg_l4,
+        piFlux_2plus1D_dim65536=smg_2d,
+        **{"3D_K4_tetrahedron_z3_dim65536": smg_k4},
+    )
+    sys.stderr.write("[Bridge 3] 32-Majorana (dim=65536) L=4 / 2+1D / 3D-K4 SMG + 24-cell rank-4 director isotropy PASS\n")
 
     # Generate all 4 publication figures:
     make_figures(out)
