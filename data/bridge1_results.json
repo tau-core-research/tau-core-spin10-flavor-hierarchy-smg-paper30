@@ -1,20 +1,23 @@
 {
-  "bridge1A_exact_1loop_SUSY_strong_CP": {
+  "version": "v1.2.0",
+  "bridge1A_1loop_SUSY_strong_CP": {
     "B1_Parity_Universal_A0_0": {
       "alpha3_at_Msq": 0.0783,
       "M3_at_Msq_GeV": 2432.9,
       "squark_up_range_GeV": [
-        7449.5,
+        7438.7,
         12188.8
       ],
       "squark_down_range_GeV": [
-        8520.8,
+        8607.4,
         12188.8
       ],
+      "U1R_invariance_max_err": 1.35e-13,
+      "induced_gluino_Delta_b": -0.04279,
       "Tu_RG_nonHermiticity": 0.006259,
       "Td_RG_nonHermiticity": 0.01024,
-      "theta_QCD_1loop_Yukawa_RG_rad": 2.731e-15,
-      "theta_QCD_full_6x6_gluino_loop_rad": 1.728e-13,
+      "theta_QCD_1loop_Yukawa_RG_rad": 9.831e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 1.083e-12,
       "neutron_EDM_bound_rad": 1.3e-10,
       "passes_nEDM": true
     },
@@ -22,144 +25,182 @@
       "alpha3_at_Msq": 0.0783,
       "M3_at_Msq_GeV": 2432.9,
       "squark_up_range_GeV": [
-        6982.8,
+        6968.7,
         12188.8
       ],
       "squark_down_range_GeV": [
-        8128.7,
+        8238.0,
         12188.8
       ],
+      "U1R_invariance_max_err": 1.15e-13,
+      "induced_gluino_Delta_b": -0.04343,
       "Tu_RG_nonHermiticity": 0.02355,
       "Td_RG_nonHermiticity": 0.02547,
-      "theta_QCD_1loop_Yukawa_RG_rad": 8.887e-15,
-      "theta_QCD_full_6x6_gluino_loop_rad": 4.655e-13,
+      "theta_QCD_1loop_Yukawa_RG_rad": 4.001e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 4.088e-13,
       "neutron_EDM_bound_rad": 1.3e-10,
       "passes_nEDM": true
     },
-    "B3_Parity_NonUniversal_Hermitian_dA0p5": {
+    "B3_Parity_NonUniversal_dA0p5": {
       "alpha3_at_Msq": 0.0783,
       "M3_at_Msq_GeV": 2432.9,
       "squark_up_range_GeV": [
-        6900.7,
+        6886.6,
         12188.8
       ],
       "squark_down_range_GeV": [
-        7983.7,
+        8093.7,
         12188.8
       ],
+      "U1R_invariance_max_err": 1.24e-13,
+      "induced_gluino_Delta_b": -0.04442,
       "Tu_RG_nonHermiticity": 0.02111,
       "Td_RG_nonHermiticity": 0.01861,
-      "theta_QCD_1loop_Yukawa_RG_rad": 2.024e-14,
-      "theta_QCD_full_6x6_gluino_loop_rad": 3.282e-08,
+      "theta_QCD_1loop_Yukawa_RG_rad": 7.468e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 3.214e-08,
       "neutron_EDM_bound_rad": 1.3e-10,
       "passes_nEDM": false
     },
-    "B4_SoftCP_Violation_phiA_1e-6": {
+    "B4_SoftCP_phiA_1e_6": {
       "alpha3_at_Msq": 0.0783,
       "M3_at_Msq_GeV": 2432.9,
       "squark_up_range_GeV": [
-        6982.8,
+        6968.7,
         12188.8
       ],
       "squark_down_range_GeV": [
-        8128.7,
+        8238.0,
         12188.8
       ],
+      "U1R_invariance_max_err": 6.33e-14,
+      "induced_gluino_Delta_b": -0.04343,
       "Tu_RG_nonHermiticity": 0.02355,
       "Td_RG_nonHermiticity": 0.02547,
-      "theta_QCD_1loop_Yukawa_RG_rad": 1.413e-14,
-      "theta_QCD_full_6x6_gluino_loop_rad": 1.31e-08,
+      "theta_QCD_1loop_Yukawa_RG_rad": 2.509e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 1.299e-08,
       "neutron_EDM_bound_rad": 1.3e-10,
       "passes_nEDM": false
     },
-    "B5_SoftCP_Violation_phiM3_1e-10": {
+    "B5_SoftCP_phiM3_1e_10": {
       "alpha3_at_Msq": 0.0783,
       "M3_at_Msq_GeV": 2432.9,
       "squark_up_range_GeV": [
-        7449.5,
+        7438.7,
         12188.8
       ],
       "squark_down_range_GeV": [
-        8520.8,
+        8607.4,
         12188.8
       ],
+      "U1R_invariance_max_err": 6.85e-14,
+      "induced_gluino_Delta_b": -0.04279,
       "Tu_RG_nonHermiticity": 0.006259,
       "Td_RG_nonHermiticity": 0.01024,
-      "theta_QCD_1loop_Yukawa_RG_rad": 3.726e-15,
-      "theta_QCD_full_6x6_gluino_loop_rad": 2.898e-10,
+      "theta_QCD_1loop_Yukawa_RG_rad": 1.68e-14,
+      "theta_QCD_full_6x6_gluino_loop_rad": 3.089e-10,
       "neutron_EDM_bound_rad": 1.3e-10,
       "passes_nEDM": false
     }
   },
-  "bridge1B_SUSY_PH16_delta_CP_profile": [
+  "bridge1B_smooth_delta_CP_profile": [
     {
       "target_deg": 0,
-      "achieved_deg": 2.2,
-      "chi2_18obs": 1.3083,
-      "max_abs_pull": 1.016,
-      "sin2_th23": 0.5015,
-      "sum_m_nu_eV": 0.061,
-      "m_bb_meV": 1.037,
-      "max_Y": 0.5344
+      "achieved_deg": 360.0,
+      "chi2_18obs": 1.3479,
+      "max_abs_pull": 1.003,
+      "sin2_th23": 0.5029,
+      "sum_m_nu_eV": 0.06102,
+      "m_bb_meV": 1.044,
+      "max_Y": 0.5343,
+      "branch": "cw"
     },
     {
       "target_deg": 45,
-      "achieved_deg": 47.0,
-      "chi2_18obs": 3350.943,
-      "max_abs_pull": 39.339,
-      "sin2_th23": 0.0159,
-      "sum_m_nu_eV": 0.05261,
-      "m_bb_meV": 0.012,
-      "max_Y": 0.5651
+      "achieved_deg": 45.0,
+      "chi2_18obs": 2.5357,
+      "max_abs_pull": 1.154,
+      "sin2_th23": 0.5589,
+      "sum_m_nu_eV": 0.06144,
+      "m_bb_meV": 1.044,
+      "max_Y": 0.5344,
+      "branch": "ccw"
     },
     {
       "target_deg": 90,
-      "status": "no_perturbative_solution_within_10deg"
+      "achieved_deg": 90.0,
+      "chi2_18obs": 2.1611,
+      "max_abs_pull": 1.313,
+      "sin2_th23": 0.5236,
+      "sum_m_nu_eV": 0.06376,
+      "m_bb_meV": 0.928,
+      "max_Y": 0.5342,
+      "branch": "ccw"
     },
     {
       "target_deg": 135,
-      "achieved_deg": 128.5,
-      "chi2_18obs": 376.2405,
-      "max_abs_pull": 10.939,
-      "sin2_th23": 0.1777,
-      "sum_m_nu_eV": 0.05945,
-      "m_bb_meV": 0.161,
-      "max_Y": 0.4556
+      "achieved_deg": 134.95,
+      "chi2_18obs": 11.9566,
+      "max_abs_pull": 1.898,
+      "sin2_th23": 0.5092,
+      "sum_m_nu_eV": 0.06664,
+      "m_bb_meV": 0.596,
+      "max_Y": 0.5252,
+      "branch": "ccw"
     },
     {
       "target_deg": 180,
-      "achieved_deg": 170.4,
-      "chi2_18obs": 105.825,
-      "max_abs_pull": 5.541,
-      "sin2_th23": 0.2815,
-      "sum_m_nu_eV": 0.05858,
-      "m_bb_meV": 1.025,
-      "max_Y": 0.4809
+      "achieved_deg": 179.98,
+      "chi2_18obs": 25.9316,
+      "max_abs_pull": 3.119,
+      "sin2_th23": 0.5206,
+      "sum_m_nu_eV": 0.06759,
+      "m_bb_meV": 0.496,
+      "max_Y": 0.5206,
+      "branch": "cw"
     },
     {
       "target_deg": 225,
-      "achieved_deg": 230.0,
-      "chi2_18obs": 636.3952,
-      "max_abs_pull": 12.616,
-      "sin2_th23": 0.0001,
-      "sum_m_nu_eV": 0.05701,
-      "m_bb_meV": 0.075,
-      "max_Y": 0.5374
+      "achieved_deg": 225.03,
+      "chi2_18obs": 24.1595,
+      "max_abs_pull": 3.097,
+      "sin2_th23": 0.4963,
+      "sum_m_nu_eV": 0.06671,
+      "m_bb_meV": 0.511,
+      "max_Y": 0.5212,
+      "branch": "cw"
     },
     {
       "target_deg": 270,
-      "status": "no_perturbative_solution_within_10deg"
+      "achieved_deg": 270.03,
+      "chi2_18obs": 11.2802,
+      "max_abs_pull": 1.833,
+      "sin2_th23": 0.4337,
+      "sum_m_nu_eV": 0.06441,
+      "m_bb_meV": 0.588,
+      "max_Y": 0.5255,
+      "branch": "cw"
+    },
+    {
+      "target_deg": 300,
+      "achieved_deg": 300.01,
+      "chi2_18obs": 5.8488,
+      "max_abs_pull": 1.683,
+      "sin2_th23": 0.409,
+      "sum_m_nu_eV": 0.06266,
+      "m_bb_meV": 0.796,
+      "max_Y": 0.5314,
+      "branch": "cw"
     },
     {
       "target_deg": 315,
-      "achieved_deg": 313.0,
-      "chi2_18obs": 142.6338,
-      "max_abs_pull": 8.288,
-      "sin2_th23": 0.2929,
-      "sum_m_nu_eV": 0.06168,
-      "m_bb_meV": 1.14,
-      "max_Y": 0.5494
+      "achieved_deg": 315.01,
+      "chi2_18obs": 4.2231,
+      "max_abs_pull": 1.451,
+      "sin2_th23": 0.4229,
+      "sum_m_nu_eV": 0.06195,
+      "m_bb_meV": 0.932,
+      "max_Y": 0.5335,
+      "branch": "cw"
     }
-  ],
-  "elapsed_s": 10.66
+  ]
 }

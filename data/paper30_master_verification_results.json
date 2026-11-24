@@ -277,6 +277,7 @@
         "sum_m_nu_eV": 0.06103,
         "m_beta_beta_meV": 1.044,
         "sin2_th23_lepton": 0.5022,
+        "delta_CP_lepton_rad": 6.277081631898664,
         "delta_CP_lepton_deg": 359.7,
         "J_CP_lepton": -0.0002036336105944332,
         "M_R_GeV": [
@@ -342,17 +343,67 @@
       "Delta_FT_at_2TeV": 1014.7,
       "Delta_FT_at_MiniSplit_SuperK": 1270666.6
     },
-    "SUSY_PH16_DW_sweet_spot": {
-      "M_prime_exact_GeV": 263846083530698.4,
-      "M_U_exact_GeV": 1.0356626841287202e+16,
-      "alpha_U_inv": 25.893,
-      "alpha3_inv_miss": 0.0,
-      "DW_triplet_suppression_factor": 39.25,
-      "tau_p_2TeV_with_DW_yr": 5.862973353691813e+30,
-      "Msq_min_SuperK_DW_GeV": 12024.0,
-      "Msq_min_HyperK_DW_GeV": 18393.0,
-      "Delta_FT_SK_DW": 34739.5,
-      "Delta_FT_HK_DW": 80031.5
+    "SUSY_PH16_2loop_DW_unification_audit": {
+      "two_loop_pure_gauge_2TeV": {
+        "M_U_GeV": 1.1765489125559036e+16,
+        "alpha_U_inv": 25.557,
+        "alpha3_inv_miss": 0.0602,
+        "exact_DW_root_below_MU": false
+      },
+      "two_loop_pure_gauge_12TeV": {
+        "baseline_M_U_GeV": 6603278173224860.0,
+        "baseline_alpha3_inv_miss": -0.3454,
+        "DW_M_prime_GeV": 1458274195210134.2,
+        "DW_M_U_GeV": 7465179555783200.0,
+        "DW_alpha_U_inv": 26.643,
+        "DW_alpha3_inv_miss": -0.0,
+        "DW_suppression_factor": 5.12
+      },
+      "two_loop_MSUSY_2TeV": {
+        "M_U_GeV": 1.1502521123278694e+16,
+        "alpha_U_inv": 25.688,
+        "alpha3_inv_miss": -0.0033,
+        "exact_DW_root_below_MU": true
+      },
+      "two_loop_MSUSY_12TeV": {
+        "baseline_M_U_GeV": 6468414852448151.0,
+        "baseline_alpha3_inv_miss": -0.4035,
+        "DW_M_prime_GeV": 1106050046837649.1,
+        "DW_M_U_GeV": 7465268304378830.0,
+        "DW_alpha_U_inv": 26.715,
+        "DW_alpha3_inv_miss": -0.0,
+        "DW_suppression_factor": 6.75,
+        "Msq_min_SK_GeV": 29101.7,
+        "Msq_min_HK_GeV": 44435.6,
+        "Delta_FT_SK": 194530.7
+      },
+      "one_loop_selfconsistent_MiniSplit": {
+        "baseline_M_U_GeV": 1.0850619866115264e+16,
+        "baseline_alpha3_inv_miss": -0.2497,
+        "DW_M_prime_GeV": 3493462742935342.5,
+        "DW_M_U_GeV": 1.1839025796620846e+16,
+        "DW_suppression_factor": 3.39
+      },
+      "isolated_T10_LLLL_squark_windows": {
+        "uncancelled_1x": {
+          "Msq_SK_TeV": 75.7,
+          "Msq_HK_TeV": 115.5,
+          "Delta_FT_SK": 1267391.0
+        },
+        "two_loop_12TeV_DW": {
+          "sup_fac": 6.75,
+          "Msq_SK_TeV": 29.1,
+          "Msq_HK_TeV": 44.4,
+          "Delta_FT_SK": 194531.0
+        },
+        "illustrative_40x_triplet_suppression": {
+          "sup_fac": 40.0,
+          "Msq_SK_TeV": 11.9,
+          "Msq_HK_TeV": 18.2,
+          "Delta_FT_SK": 33691.0
+        }
+      },
+      "caveat": "At 2-loop, exact unification is highly sensitive to M_SUSY and O(1) GUT thresholds from 45, 54, 126_bar, 120; M' is NOT uniquely fixed by gauge unification. Moreover, proton-decay bounds here cover isolated uncancelled T_10 LLLL exchange (omitting T_126/T_120 interference and tan(beta)-enhanced RRRR higgsino-dressed operators)."
     },
     "NS_PH16_a13_h23": {
       "chi2": 0.029711997353475135,
@@ -413,6 +464,7 @@
         "sum_m_nu_eV": 0.06004,
         "m_beta_beta_meV": 2.845,
         "sin2_th23_lepton": 0.5161,
+        "delta_CP_lepton_rad": 6.266923079526724,
         "delta_CP_lepton_deg": 359.1,
         "J_CP_lepton": -0.0005419886799132969,
         "M_R_GeV": [
@@ -1431,397 +1483,628 @@
       ]
     }
   },
-  "bridge1_1loop_SUSY_strong_CP": {
-    "Parity_Universal_A0_0": {
+  "bridge1A_1loop_SUSY_strong_CP": {
+    "B1_Parity_Universal_A0_0": {
       "alpha3_at_Msq": 0.0783,
       "M3_at_Msq_GeV": 2432.9,
       "squark_up_range_GeV": [
-        7449.5,
+        7438.7,
         12188.8
       ],
       "squark_down_range_GeV": [
-        8520.8,
+        8607.4,
         12188.8
       ],
+      "U1R_invariance_max_err": 1.35e-13,
+      "induced_gluino_Delta_b": -0.04279,
       "Tu_RG_nonHermiticity": 0.006259,
       "Td_RG_nonHermiticity": 0.01024,
-      "theta_QCD_1loop_Yukawa_RG_rad": 2.731e-15,
-      "theta_QCD_full_6x6_gluino_loop_rad": 1.728e-13,
+      "theta_QCD_1loop_Yukawa_RG_rad": 9.831e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 1.083e-12,
       "neutron_EDM_bound_rad": 1.3e-10,
       "passes_nEDM": true
     },
-    "Parity_Universal_A0_12TeV": {
+    "B2_Parity_Universal_A0_12TeV": {
       "alpha3_at_Msq": 0.0783,
       "M3_at_Msq_GeV": 2432.9,
       "squark_up_range_GeV": [
-        6982.8,
+        6968.7,
         12188.8
       ],
       "squark_down_range_GeV": [
-        8128.7,
+        8238.0,
         12188.8
       ],
+      "U1R_invariance_max_err": 1.15e-13,
+      "induced_gluino_Delta_b": -0.04343,
       "Tu_RG_nonHermiticity": 0.02355,
       "Td_RG_nonHermiticity": 0.02547,
-      "theta_QCD_1loop_Yukawa_RG_rad": 8.887e-15,
-      "theta_QCD_full_6x6_gluino_loop_rad": 4.655e-13,
+      "theta_QCD_1loop_Yukawa_RG_rad": 4.001e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 4.088e-13,
       "neutron_EDM_bound_rad": 1.3e-10,
       "passes_nEDM": true
     },
-    "Parity_NonUniversal_dA0p5": {
+    "B3_Parity_NonUniversal_dA0p5": {
       "alpha3_at_Msq": 0.0783,
       "M3_at_Msq_GeV": 2432.9,
       "squark_up_range_GeV": [
-        6900.7,
+        6886.6,
         12188.8
       ],
       "squark_down_range_GeV": [
-        7983.7,
+        8093.7,
         12188.8
       ],
+      "U1R_invariance_max_err": 1.24e-13,
+      "induced_gluino_Delta_b": -0.04442,
       "Tu_RG_nonHermiticity": 0.02111,
       "Td_RG_nonHermiticity": 0.01861,
-      "theta_QCD_1loop_Yukawa_RG_rad": 2.024e-14,
-      "theta_QCD_full_6x6_gluino_loop_rad": 3.282e-08,
+      "theta_QCD_1loop_Yukawa_RG_rad": 7.468e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 3.214e-08,
+      "neutron_EDM_bound_rad": 1.3e-10,
+      "passes_nEDM": false
+    },
+    "B4_SoftCP_phiA_1e_6": {
+      "alpha3_at_Msq": 0.0783,
+      "M3_at_Msq_GeV": 2432.9,
+      "squark_up_range_GeV": [
+        6968.7,
+        12188.8
+      ],
+      "squark_down_range_GeV": [
+        8238.0,
+        12188.8
+      ],
+      "U1R_invariance_max_err": 6.33e-14,
+      "induced_gluino_Delta_b": -0.04343,
+      "Tu_RG_nonHermiticity": 0.02355,
+      "Td_RG_nonHermiticity": 0.02547,
+      "theta_QCD_1loop_Yukawa_RG_rad": 2.509e-15,
+      "theta_QCD_full_6x6_gluino_loop_rad": 1.299e-08,
+      "neutron_EDM_bound_rad": 1.3e-10,
+      "passes_nEDM": false
+    },
+    "B5_SoftCP_phiM3_1e_10": {
+      "alpha3_at_Msq": 0.0783,
+      "M3_at_Msq_GeV": 2432.9,
+      "squark_up_range_GeV": [
+        7438.7,
+        12188.8
+      ],
+      "squark_down_range_GeV": [
+        8607.4,
+        12188.8
+      ],
+      "U1R_invariance_max_err": 6.85e-14,
+      "induced_gluino_Delta_b": -0.04279,
+      "Tu_RG_nonHermiticity": 0.006259,
+      "Td_RG_nonHermiticity": 0.01024,
+      "theta_QCD_1loop_Yukawa_RG_rad": 1.68e-14,
+      "theta_QCD_full_6x6_gluino_loop_rad": 3.089e-10,
       "neutron_EDM_bound_rad": 1.3e-10,
       "passes_nEDM": false
     }
   },
-  "bridge3_24cell_director_isotropy": {
+  "bridge1B_smooth_delta_CP_profile": [
+    {
+      "target_deg": 0,
+      "achieved_deg": 360.0,
+      "chi2_18obs": 1.3479,
+      "max_abs_pull": 1.003,
+      "sin2_th23": 0.5029,
+      "sum_m_nu_eV": 0.06102,
+      "m_bb_meV": 1.044,
+      "max_Y": 0.5343,
+      "branch": "cw"
+    },
+    {
+      "target_deg": 45,
+      "achieved_deg": 45.0,
+      "chi2_18obs": 2.5357,
+      "max_abs_pull": 1.154,
+      "sin2_th23": 0.5589,
+      "sum_m_nu_eV": 0.06144,
+      "m_bb_meV": 1.044,
+      "max_Y": 0.5344,
+      "branch": "ccw"
+    },
+    {
+      "target_deg": 90,
+      "achieved_deg": 90.0,
+      "chi2_18obs": 2.1611,
+      "max_abs_pull": 1.313,
+      "sin2_th23": 0.5236,
+      "sum_m_nu_eV": 0.06376,
+      "m_bb_meV": 0.928,
+      "max_Y": 0.5342,
+      "branch": "ccw"
+    },
+    {
+      "target_deg": 135,
+      "achieved_deg": 134.95,
+      "chi2_18obs": 11.9566,
+      "max_abs_pull": 1.898,
+      "sin2_th23": 0.5092,
+      "sum_m_nu_eV": 0.06664,
+      "m_bb_meV": 0.596,
+      "max_Y": 0.5252,
+      "branch": "ccw"
+    },
+    {
+      "target_deg": 180,
+      "achieved_deg": 179.98,
+      "chi2_18obs": 25.9316,
+      "max_abs_pull": 3.119,
+      "sin2_th23": 0.5206,
+      "sum_m_nu_eV": 0.06759,
+      "m_bb_meV": 0.496,
+      "max_Y": 0.5206,
+      "branch": "cw"
+    },
+    {
+      "target_deg": 225,
+      "achieved_deg": 225.03,
+      "chi2_18obs": 24.1595,
+      "max_abs_pull": 3.097,
+      "sin2_th23": 0.4963,
+      "sum_m_nu_eV": 0.06671,
+      "m_bb_meV": 0.511,
+      "max_Y": 0.5212,
+      "branch": "cw"
+    },
+    {
+      "target_deg": 270,
+      "achieved_deg": 270.03,
+      "chi2_18obs": 11.2802,
+      "max_abs_pull": 1.833,
+      "sin2_th23": 0.4337,
+      "sum_m_nu_eV": 0.06441,
+      "m_bb_meV": 0.588,
+      "max_Y": 0.5255,
+      "branch": "cw"
+    },
+    {
+      "target_deg": 300,
+      "achieved_deg": 300.01,
+      "chi2_18obs": 5.8488,
+      "max_abs_pull": 1.683,
+      "sin2_th23": 0.409,
+      "sum_m_nu_eV": 0.06266,
+      "m_bb_meV": 0.796,
+      "max_Y": 0.5314,
+      "branch": "cw"
+    },
+    {
+      "target_deg": 315,
+      "achieved_deg": 315.01,
+      "chi2_18obs": 4.2231,
+      "max_abs_pull": 1.451,
+      "sin2_th23": 0.4229,
+      "sum_m_nu_eV": 0.06195,
+      "m_bb_meV": 0.932,
+      "max_Y": 0.5335,
+      "branch": "cw"
+    }
+  ],
+  "bridge3B_24cell_WF4_reynolds_director_isotropy": {
+    "W_F4_order": 1152,
+    "reynolds_invariant_dims": {
+      "rank2_WF4": 1,
+      "rank2_O4": 1,
+      "rank4_WF4": 3,
+      "rank4_O4": 3,
+      "rank6_WF4": 16,
+      "rank6_O4": 15
+    },
     "D4_roots_count": 24,
     "rank2_O4_isotropy_max_err": 8.881784197001252e-16,
     "rank4_O4_isotropy_max_err": 4.440892098500626e-16,
-    "rank4_AeST_director_matching_err": 7.105427357601002e-15,
-    "rank6_e_dot_n_values": {
+    "rank6_root_moments": {
       "axis_1000": 1.5,
-      "diag_1111": 1.5,
       "face_1100": 2.25,
-      "O4_isotropic_average": 1.875,
-      "relative_rank6_anisotropy": 0.2
+      "O4_avg": 1.875
     },
-    "verdict": "PROVEN: ALL rank-4 AeST / Stueckelberg-Lorenz director operators (c_1, c_2, c_3) are 100% O(4)-isotropic on the 24-cell lattice (0.0 anisotropy); first W(F_4) anisotropy enters ONLY at rank-6 (c_4-type acceleration terms), so Paper 28's pure c_2 (nabla.u)^2 Stueckelberg-Lorenz sector is strictly protected!"
+    "verdict": "PROVEN (4D Euclidean O(4)): Exact |W(F_4)|=1,152 Reynolds character averaging gives dim(((R^4)^4)^{W(F_4)}) = 3 == dim(O(4)) for ALL general non-symmetric rank-4 director kinetic tensors across independent (c_1, c_2, c_3), forbidding hypercubic sum_a (d_a u_a)^2 counterterms; first W(F_4) anisotropy enters at rank 6 (16 > 15, c_4-type acceleration operators)."
   },
   "bridge3_high_dim_SMG": {
-    "L4_1plus1D_dim65536": {
+    "L4_1plus1D_periodic_dim65536": {
       "label": "1+1D_L4_periodic",
       "L_sites": 4,
       "n_majoranas": 32,
       "full_hilbert_dim": 65536,
       "even_parity_dim": 32768,
+      "odd_parity_dim": 32768,
       "peak_susceptibility_gc": 0.25,
       "peak_susceptibility_val": 237.15,
-      "max_bilinear_VEV_unique_GS": 1.37e-15,
+      "min_gap_true_full": 0.0,
+      "max_bilinear_VEV_unique_GS": 2.4e-15,
       "phase_scan": [
         {
           "g": 0.0,
           "E0": -16.0,
-          "gap": 0.0,
-          "deg0_in_even": 4,
-          "max_bilinear_VEV": 0.0956,
-          "entanglement_S1": 2.72452
+          "gap_true_full_hilbert": 0.0,
+          "gap_even_bosonic": 0.0,
+          "gap_odd_fermionic": 0.0,
+          "deg0_full": 5,
+          "max_bilinear_VEV": 0.0704,
+          "entanglement_S1": 2.73722
         },
         {
           "g": 0.08,
           "E0": -15.964258,
-          "gap": 0.66391,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.37e-15,
+          "gap_true_full_hilbert": 0.598226,
+          "gap_even_bosonic": 0.66391,
+          "gap_odd_fermionic": 0.598226,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.4e-15,
           "entanglement_S1": 2.40746
         },
         {
           "g": 0.14,
           "E0": -16.166438,
-          "gap": 1.195794,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.21e-16,
+          "gap_true_full_hilbert": 1.117018,
+          "gap_even_bosonic": 1.195794,
+          "gap_odd_fermionic": 1.117018,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.95e-16,
           "entanglement_S1": 2.26483
         },
         {
           "g": 0.18,
           "E0": -16.485932,
-          "gap": 1.574285,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 2.08e-16,
+          "gap_true_full_hilbert": 1.522503,
+          "gap_even_bosonic": 1.574285,
+          "gap_odd_fermionic": 1.522503,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.32e-16,
           "entanglement_S1": 2.09629
         },
         {
           "g": 0.2,
           "E0": -16.729384,
-          "gap": 1.776216,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 2.78e-17,
+          "gap_true_full_hilbert": 1.753776,
+          "gap_even_bosonic": 1.776216,
+          "gap_odd_fermionic": 1.753776,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.79e-17,
           "entanglement_S1": 1.9738
         },
         {
           "g": 0.22,
           "E0": -17.046032,
-          "gap": 1.992153,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.46e-16,
+          "gap_true_full_hilbert": 1.992153,
+          "gap_even_bosonic": 1.992153,
+          "gap_odd_fermionic": 2.010545,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 6.94e-17,
           "entanglement_S1": 1.81874
         },
         {
           "g": 0.25,
           "E0": -17.685818,
-          "gap": 2.356185,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 8.33e-17,
+          "gap_true_full_hilbert": 2.356185,
+          "gap_even_bosonic": 2.356185,
+          "gap_odd_fermionic": 2.45162,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.7e-16,
           "entanglement_S1": 1.52835
         },
         {
           "g": 0.3,
           "E0": -19.226421,
-          "gap": 3.111303,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.18e-16,
+          "gap_true_full_hilbert": 3.111303,
+          "gap_even_bosonic": 3.111303,
+          "gap_odd_fermionic": 3.319593,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 8e-17,
           "entanglement_S1": 1.00453
         },
         {
           "g": 0.4,
           "E0": -23.557867,
-          "gap": 5.045359,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.15e-17,
+          "gap_true_full_hilbert": 4.580283,
+          "gap_even_bosonic": 5.045359,
+          "gap_odd_fermionic": 4.580283,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.63e-16,
           "entanglement_S1": 0.38558
         },
         {
           "g": 0.55,
           "E0": -31.236064,
-          "gap": 8.107989,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.32e-16,
+          "gap_true_full_hilbert": 6.804533,
+          "gap_even_bosonic": 8.107989,
+          "gap_odd_fermionic": 6.804533,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 4.18e-17,
           "entanglement_S1": 0.11202
         },
         {
           "g": 0.75,
           "E0": -42.095804,
-          "gap": 11.828652,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 6.29e-17,
+          "gap_true_full_hilbert": 9.989488,
+          "gap_even_bosonic": 11.828652,
+          "gap_odd_fermionic": 9.989488,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.16e-17,
           "entanglement_S1": 0.02119
         },
         {
           "g": 1.0,
           "E0": -56.0,
-          "gap": 16.0,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.6e-16,
+          "gap_true_full_hilbert": 14.0,
+          "gap_even_bosonic": 16.0,
+          "gap_odd_fermionic": 14.0,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 3.47e-17,
           "entanglement_S1": 0.0
         }
       ]
     },
-    "piFlux_2plus1D_dim65536": {
-      "label": "2+1D_2x2_piFlux_plaquette",
+    "L4_1plus1D_antiperiodic_C4_dim65536": {
+      "label": "1+1D_L4_antiperiodic_C4_piFlux",
       "L_sites": 4,
       "n_majoranas": 32,
       "full_hilbert_dim": 65536,
       "even_parity_dim": 32768,
+      "odd_parity_dim": 32768,
       "peak_susceptibility_gc": 0.25,
       "peak_susceptibility_val": 471.92,
-      "max_bilinear_VEV_unique_GS": 2.36e-16,
+      "min_gap_true_full": 2.39178,
+      "max_bilinear_VEV_unique_GS": 4.31e-16,
       "phase_scan": [
         {
           "g": 0.0,
           "E0": -22.627417,
-          "gap": 5.656854,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 4.27e-17,
+          "gap_true_full_hilbert": 2.828427,
+          "gap_even_bosonic": 5.656854,
+          "gap_odd_fermionic": 2.828427,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.52e-16,
           "entanglement_S1": 2.77259
         },
         {
           "g": 0.08,
           "E0": -20.878364,
-          "gap": 4.688475,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 7.2e-17,
+          "gap_true_full_hilbert": 2.608356,
+          "gap_even_bosonic": 4.688475,
+          "gap_odd_fermionic": 2.608356,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.28e-16,
           "entanglement_S1": 2.76699
         },
         {
           "g": 0.14,
           "E0": -19.699185,
-          "gap": 3.913086,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 2.61e-17,
+          "gap_true_full_hilbert": 2.463232,
+          "gap_even_bosonic": 3.913086,
+          "gap_odd_fermionic": 2.463232,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 3.82e-17,
           "entanglement_S1": 2.742
         },
         {
           "g": 0.18,
           "E0": -19.043498,
-          "gap": 3.387859,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 4.34e-17,
+          "gap_true_full_hilbert": 2.398718,
+          "gap_even_bosonic": 3.387859,
+          "gap_odd_fermionic": 2.398718,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.18e-16,
           "entanglement_S1": 2.68859
         },
         {
           "g": 0.2,
           "E0": -18.787089,
-          "gap": 3.138994,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 2.95e-17,
+          "gap_true_full_hilbert": 2.39178,
+          "gap_even_bosonic": 3.138994,
+          "gap_odd_fermionic": 2.39178,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 5.79e-17,
           "entanglement_S1": 2.63148
         },
         {
           "g": 0.22,
           "E0": -18.607986,
-          "gap": 2.920232,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 3.12e-17,
+          "gap_true_full_hilbert": 2.419881,
+          "gap_even_bosonic": 2.920232,
+          "gap_odd_fermionic": 2.419881,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.17e-16,
           "entanglement_S1": 2.53039
         },
         {
           "g": 0.25,
           "E0": -18.57065,
-          "gap": 2.720925,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 7.37e-17,
+          "gap_true_full_hilbert": 2.588386,
+          "gap_even_bosonic": 2.720925,
+          "gap_odd_fermionic": 2.588386,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 9.54e-17,
           "entanglement_S1": 2.22082
         },
         {
           "g": 0.3,
           "E0": -19.452266,
-          "gap": 3.02769,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 9.74e-17,
+          "gap_true_full_hilbert": 3.02769,
+          "gap_even_bosonic": 3.02769,
+          "gap_odd_fermionic": 3.418634,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.08e-16,
           "entanglement_S1": 1.30345
         },
         {
           "g": 0.4,
           "E0": -23.5737,
-          "gap": 5.001664,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.39e-16,
+          "gap_true_full_hilbert": 4.710029,
+          "gap_even_bosonic": 5.001664,
+          "gap_odd_fermionic": 4.710029,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.01e-16,
           "entanglement_S1": 0.40372
         },
         {
           "g": 0.55,
           "E0": -31.237019,
-          "gap": 8.110151,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.48e-16,
+          "gap_true_full_hilbert": 7.009221,
+          "gap_even_bosonic": 8.110151,
+          "gap_odd_fermionic": 7.009221,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.86e-17,
           "entanglement_S1": 0.11274
         },
         {
           "g": 0.75,
           "E0": -42.095832,
-          "gap": 11.829034,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 9.08e-17,
+          "gap_true_full_hilbert": 10.12716,
+          "gap_even_bosonic": 11.829034,
+          "gap_odd_fermionic": 10.12716,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 4.31e-16,
           "entanglement_S1": 0.02121
         },
         {
           "g": 1.0,
           "E0": -56.0,
-          "gap": 16.0,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 2.36e-16,
+          "gap_true_full_hilbert": 14.0,
+          "gap_even_bosonic": 16.0,
+          "gap_odd_fermionic": 14.0,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.39e-16,
           "entanglement_S1": -0.0
         }
       ]
     },
-    "3D_K4_tetrahedron_z3_dim65536": {
-      "label": "3D_K4_tetrahedron_z3",
+    "K4_4site_tetrahedral_cluster_z3_dim65536": {
+      "label": "K4_4site_tetrahedral_cluster_z3",
       "L_sites": 4,
       "n_majoranas": 32,
       "full_hilbert_dim": 65536,
       "even_parity_dim": 32768,
+      "odd_parity_dim": 32768,
       "peak_susceptibility_gc": 0.22,
       "peak_susceptibility_val": 482.96,
-      "max_bilinear_VEV_unique_GS": 1.65e-16,
+      "min_gap_true_full": 0.311053,
+      "max_bilinear_VEV_unique_GS": 2.01e-16,
       "phase_scan": [
         {
           "g": 0.0,
           "E0": -22.627417,
-          "gap": 1.656854,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.96e-15,
+          "gap_true_full_hilbert": 0.828427,
+          "gap_even_bosonic": 1.656854,
+          "gap_odd_fermionic": 0.828427,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.42e-16,
           "entanglement_S1": 2.77259
         },
         {
           "g": 0.08,
           "E0": -20.878432,
-          "gap": 1.304302,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 7.31e-17,
+          "gap_true_full_hilbert": 0.774735,
+          "gap_even_bosonic": 1.304302,
+          "gap_odd_fermionic": 0.774735,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 7.63e-17,
           "entanglement_S1": 2.76696
         },
         {
           "g": 0.14,
           "E0": -19.701164,
-          "gap": 1.101077,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.39e-16,
+          "gap_true_full_hilbert": 0.77007,
+          "gap_even_bosonic": 1.101077,
+          "gap_odd_fermionic": 0.77007,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 7.63e-17,
           "entanglement_S1": 2.74082
         },
         {
           "g": 0.18,
           "E0": -19.057861,
-          "gap": 0.591376,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 7.98e-17,
+          "gap_true_full_hilbert": 0.591376,
+          "gap_even_bosonic": 0.591376,
+          "gap_odd_fermionic": 0.821041,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.67e-16,
           "entanglement_S1": 2.67634
         },
         {
           "g": 0.2,
           "E0": -18.825394,
-          "gap": 0.39954,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 9.71e-17,
+          "gap_true_full_hilbert": 0.39954,
+          "gap_even_bosonic": 0.39954,
+          "gap_odd_fermionic": 0.892887,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 5.55e-17,
           "entanglement_S1": 2.59197
         },
         {
           "g": 0.22,
           "E0": -18.707526,
-          "gap": 0.311053,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 6.94e-17,
+          "gap_true_full_hilbert": 0.311053,
+          "gap_even_bosonic": 0.311053,
+          "gap_odd_fermionic": 1.037954,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 4.16e-17,
           "entanglement_S1": 2.41104
         },
         {
           "g": 0.25,
           "E0": -18.892943,
-          "gap": 0.518528,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 4.17e-17,
+          "gap_true_full_hilbert": 0.518528,
+          "gap_even_bosonic": 0.518528,
+          "gap_odd_fermionic": 1.508146,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.11e-16,
           "entanglement_S1": 1.87436
         },
         {
           "g": 0.3,
           "E0": -20.137033,
-          "gap": 1.736739,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.06e-16,
+          "gap_true_full_hilbert": 1.736739,
+          "gap_even_bosonic": 1.736739,
+          "gap_odd_fermionic": 2.443002,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 3.47e-17,
           "entanglement_S1": 1.12808
         },
         {
           "g": 0.4,
           "E0": -24.10475,
-          "gap": 5.134314,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 1.65e-16,
+          "gap_true_full_hilbert": 4.15779,
+          "gap_even_bosonic": 5.134314,
+          "gap_odd_fermionic": 4.15779,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.01e-16,
           "entanglement_S1": 0.5016
         },
         {
           "g": 0.55,
           "E0": -31.453751,
-          "gap": 8.128762,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 5.79e-17,
+          "gap_true_full_hilbert": 6.585764,
+          "gap_even_bosonic": 8.128762,
+          "gap_odd_fermionic": 6.585764,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 2.01e-16,
           "entanglement_S1": 0.15805
         },
         {
           "g": 0.75,
           "E0": -42.143741,
-          "gap": 11.84103,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 5.57e-17,
+          "gap_true_full_hilbert": 9.877879,
+          "gap_even_bosonic": 11.84103,
+          "gap_odd_fermionic": 9.877879,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.43e-17,
           "entanglement_S1": 0.03041
         },
         {
           "g": 1.0,
           "E0": -56.0,
-          "gap": 16.0,
-          "deg0_in_even": 1,
-          "max_bilinear_VEV": 8.35e-17,
+          "gap_true_full_hilbert": 14.0,
+          "gap_even_bosonic": 16.0,
+          "gap_odd_fermionic": 14.0,
+          "deg0_full": 1,
+          "max_bilinear_VEV": 1.67e-16,
           "entanglement_S1": 0.0
         }
       ]

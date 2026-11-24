@@ -137,6 +137,7 @@ def eval_parity_hermitian(H, F, A, r_mag, s, c_e, c_u, c_nu, targets, tanb, beta
             sum_m_nu_eV=round(float(np.sum(snu)), 5),
             m_beta_beta_meV=round(m_bb * 1e3, 3),
             sin2_th23_lepton=round(float(ls23**2), 4),
+            delta_CP_lepton_rad=float(ld),
             delta_CP_lepton_deg=round(float(math.degrees(ld)), 1),
             J_CP_lepton=float(lJ),
             M_R_GeV=[float(x) for x in sMR],

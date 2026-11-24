@@ -157,7 +157,9 @@ def audit_dimopoulos_wilczek_unification(cancel_req_SK: float, M_U: float = 7.97
 
 def main():
     t0 = time.time()
-    with open("/Users/jolcsak/.gemini/antigravity/brain/a427c21d-9cd4-494e-9b77-f0a1253ad296/scratch/susy_ph_10_126_120_results.json") as f:
+    from pathlib import Path
+    data_dir = Path(__file__).resolve().parent.parent / "data"
+    with open(data_dir / "susy_ph_10_126_120_results.json") as f:
         data = json.load(f)
 
     targs_S1, _ = run_mssm_targets(delta_b=0.0, tanb=50.0)
