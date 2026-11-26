@@ -1,0 +1,32 @@
+{
+  "title": "Discrete 4-Simplex Spin(10) Genesis of Flavor Hierarchy, Strong CP Closure, Split-SUSY Proton-Decay Windows, and 4D Chiral Gauge-Higgs-Fermion Lattice Tests",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "description": "Public reproducibility and manuscript package for Tau Core Paper 30 (v1.8.0). Unifies 4-simplex 32D Spin(10) + 120_H genesis, exact Dirac-Fierz (X', Y') and |lambda| = 1/4, 16-parameter PH16_a13_h23 with tree-level theta_bar = 0 and U(1)_R-exact 1-loop SUSY Strong-CP control, d=5/d=6 proton-decay and 2-loop Split-SUSY m_h windows (Branch I G_422 Z_2^(210) shield no-go vs. Branch II Low-tan(beta) Split-SUSY Island bilinear RPV window), 24-cell Vilkovisky-DeWitt spin-2 Induced-Gravity Sign Theorem, 4D chiral Spin(10) nodeless S^9 Symmetric Mass Generation (dim = 65,536 Weyl Lanczos), and dynamical Spin(10) Pfaffian gauge invariance + quenched a -> 0 4D D_4 lattice scaling (NATURE_LEVEL_CLOSURE = false).",
+  "creators": [
+    {
+      "name": "Olcsák, József",
+      "orcid": "0009-0003-7311-6522"
+    }
+  ],
+  "license": "MIT",
+  "version": "v1.8.0",
+  "access_right": "open",
+  "keywords": [
+    "Tau Core",
+    "Spin(10) GUT",
+    "flavor hierarchy",
+    "Strong CP",
+    "Split-SUSY",
+    "Symmetric Mass Generation",
+    "lattice chiral gauge theory",
+    "Pfaffian"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/tau-core-research/tau-core-spin10-flavor-hierarchy-smg-paper30",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
