@@ -1,0 +1,276 @@
+{
+  "script": "verify_4d_spin10_chiral_smg_and_ep_obstruction.py",
+  "epistemic_status": {
+    "NATURE_LEVEL_CLOSURE": false,
+    "PROVEN_ALGEBRAIC": [
+      "First-principles Cl(10) charge-conjugation SymPy proof: 16_+ x 16_+ = 10_S (+) 120_A (+) bar{126}_S with symmetric M_a^T = +M_a satisfying M(n)^dag M(n) == (sum_{a=1}^{10} n_a^2) I_{16} for all n in R^{10} (zero nodal points on S^9) and exact anomaly cancellation across all 91,125 Spin(10) generator triples. Spinless 1-component fermions vanish identically in the 10_S channel, whereas 4D 2-component Lorentz-Weyl spinors form the non-vanishing Lorentz-scalar pairing operator Delta_a = (1/2) eps^{alpha beta} psi_{i alpha} M_a^{ij} psi_{j beta}.",
+      "Exact 4D D_4 reciprocal-lattice & Golterman-Petcher-Rivas / Tamm boundary resurrection theorems: (pi,pi,pi,pi) in D_4^* is a reciprocal-lattice vector (leaving 7 distinct non-zero half-period BZ points, all lifted with hat{K}_{D_4} in {8, 32/3} > 0 in ell_0 = 1 units). Unprojected 4D boundary Yukawa coupling resurrects a mirror mode at k = 0 as y_M -> infinity with y_M * Delta E_{mirror}(0) -> m_0(2 - m_0), whereas chirally projected P_R boundary coupling eliminates k = 0 resurrection completely (> 0.90 at y_M = 10^4) but pulls down a supercritical BZ doubler Tamm state at k = (pi,0,0,0) with y_M * Delta E_{doub} -> M_{eff}(pi)^2 - 1 = 15.81 \u2014 proving a strict PROVEN NO-GO for y_M -> infinity in BOTH prescriptions and bounding mirror SMG to a wide intermediate window y_M in [1, 15] (peak BZ gap 0.904)."
+    ],
+    "PROVEN_NUMERIC": [
+      "Exact 4D D_4 physical Watson integral G_{D_4}^{phys}(0) (verified against the universal 4D continuum IR logarithm slope 1/(16 pi^2)) proves a strictly UV/IR-finite disordered O(10) symmetric phase <n_a> = 0 in d = 4, and the 5D Domain-Wall 24-cell BZ scan (L_s = 12, r_W = 1.0, m_0 = 0.9) establishes full-BZ mirror gapping (> 0.60 everywhere in BZ) with < 10^{-15} k = 0 chiral leakage.",
+      "Exact many-body diagonalization / matrix-free bit-manipulation Lanczos of the 2-component Weyl symmetric-Hurwitz SMG Hamiltonian on L = 1 (dim = 256) and L = 2 coupled sites (dim = 65,536 = 32,768_even + 32,768_odd) proves a unique spin-singlet ground state (deg = 1), strictly positive many-body gap across g in (0, 1], and identically vanishing mass / symmetry-breaking fermion bilinear expectation values (<c_p c_q> = 0 across all 120 Majorana pairs and <c_p^dag c_q>_symbreak = 0)."
+    ],
+    "OPEN": [
+      "Constructive 4D/5D dynamical Spin(10) chiral-gauge lattice Monte Carlo continuum limit (a -> 0): proving non-perturbatively in infinite 4D volume (with dynamical Spin(10) link variables U_ell turned on and without triggering an Eichten-Preskill symmetric-phase light composite-fermion transition or sign-problem obstruction) that the gapped mirror phase connects smoothly to the continuum limit."
+    ]
+  },
+  "gate1_benchmarks": {
+    "gate1a_SU5_10_max_anomaly_nonzero": 0.237171,
+    "gate1a_SU5_Georgi_Glashow_max_residual": 1.943e-16,
+    "gate1a_Spin10_16_all_91125_triples_max_residual": 0.0,
+    "gate1b_Z4_Watson_G0_computed": 0.15493339023101,
+    "gate1b_Z4_Watson_G0_literature": 0.15493339023106,
+    "gate1b_Z4_Watson_rel_err": 3.244e-13,
+    "gate1c_GPR_unprojected_waveguide_resurrection": {
+      "mirror_gap_yM_0": 3.9322e-09,
+      "mirror_gap_yM_1_gapped": 0.566315,
+      "mirror_gap_yM_1e3_resurrecting": 0.000959999,
+      "mirror_gap_yM_1e4_resurrecting": 9.6e-05,
+      "asymptotic_yM_times_gap_1e4": 0.96,
+      "analytic_m0_2_minus_m0_exact": 0.96,
+      "rel_err_vs_analytic": 3.154e-08,
+      "PROVEN_NOGO_unprojected_yM_infinity_limit": true
+    }
+  },
+  "gate2a_sympy_spin10_algebra": {
+    "B32_antisymmetric_and_chirality_preserving": true,
+    "tensor_square_16_x_16": "10_S (+) 120_A (+) bar{126}_S (10 + 120 + 126 = 256)",
+    "rank_120_antisymmetric_3forms_exact": 120,
+    "M_a_symmetric_10_orthogonality": "Tr(M_a^dag M_b) == 16 delta_{ab}",
+    "nodeless_S9_identity_exact": "M(n)^dag M(n) == (sum_{a=1}^{10} n_a^2) I_{16} (zero nodes on S^9)",
+    "weyl_2comp_requirement": "Spinless 1-comp psi^T M_a psi == 0; 2-comp Weyl eps^{alpha beta} psi_{i alpha} M_a^{ij} psi_{j beta} != 0"
+  },
+  "gate2bc_24cell_watson_and_dw_window": {
+    "D4_reciprocal_origin_pi4_equivalent_to_0": true,
+    "D4_BZ_8_half_period_points": [
+      {
+        "k_over_pi": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "K_hat_D4": 0.0
+      },
+      {
+        "k_over_pi": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "K_hat_D4": 8.0
+      },
+      {
+        "k_over_pi": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "K_hat_D4": 8.0
+      },
+      {
+        "k_over_pi": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "K_hat_D4": 10.666667
+      },
+      {
+        "k_over_pi": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "K_hat_D4": 8.0
+      },
+      {
+        "k_over_pi": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "K_hat_D4": 10.666667
+      },
+      {
+        "k_over_pi": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "K_hat_D4": 10.666667
+      },
+      {
+        "k_over_pi": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "K_hat_D4": 8.0
+      }
+    ],
+    "D4_physical_Watson_G0_extrapolated": 0.27646095,
+    "D4_Watson_Richardson_rel_uncertainty": 2.331e-13,
+    "gate3_4D_continuum_IR_log_slope_unit_check": 1.00735,
+    "O10_sigma_model_convention": "S_sigma = (J_sigma / 2) int d^4X (d_mu n)^2 with n . n = 10 => J_{sigma,c} ell_0^2 == G_{D_4}^{phys}(0) ell_0^2 (or 10 * G_{D_4}^{phys}(0) ell_0^2 for unit |n| = 1)",
+    "O10_disordered_critical_stiffness_J_sigma_c_ell0_sq_n2_eq_10": 0.27646095,
+    "O10_disordered_critical_stiffness_unit_n_ell0_sq": 2.76460949,
+    "DW_24cell_mirror_window_Ls12_m0_0p9": {
+      "unprojected_optimal_y_M_star": 1.0,
+      "unprojected_peak_BZ_mirror_gap": 0.604018,
+      "chiral_PR_optimal_y_M_star": 10.0,
+      "chiral_PR_peak_BZ_mirror_gap": 0.903771,
+      "chiral_PR_k0_gap_at_yM_1e4": 0.903778,
+      "chiral_PR_doubler_pi_yM_times_gap_1e4": 15.809997,
+      "chiral_PR_doubler_analytic_Meff2_minus_1": 15.81,
+      "chiral_PR_doubler_rel_err": 1.681e-07,
+      "y_M_scan": [
+        {
+          "y_M": 0.0,
+          "left_physical_chiral_leakage_at_k0": 9.8997e-13,
+          "unprojected_BZ_mirror_gap": 0.0,
+          "chiral_PR_projected_BZ_mirror_gap": 0.0
+        },
+        {
+          "y_M": 0.25,
+          "left_physical_chiral_leakage_at_k0": 6.2982e-17,
+          "unprojected_BZ_mirror_gap": 0.247148,
+          "chiral_PR_projected_BZ_mirror_gap": 0.247335
+        },
+        {
+          "y_M": 0.5,
+          "left_physical_chiral_leakage_at_k0": 2.0139e-17,
+          "unprojected_BZ_mirror_gap": 0.490222,
+          "chiral_PR_projected_BZ_mirror_gap": 0.493363
+        },
+        {
+          "y_M": 1.0,
+          "left_physical_chiral_leakage_at_k0": 9.2223e-17,
+          "unprojected_BZ_mirror_gap": 0.604018,
+          "chiral_PR_projected_BZ_mirror_gap": 0.900959
+        },
+        {
+          "y_M": 1.5,
+          "left_physical_chiral_leakage_at_k0": 3.9464e-18,
+          "unprojected_BZ_mirror_gap": 0.492717,
+          "chiral_PR_projected_BZ_mirror_gap": 0.903645
+        },
+        {
+          "y_M": 2.0,
+          "left_physical_chiral_leakage_at_k0": 2.3922e-18,
+          "unprojected_BZ_mirror_gap": 0.409039,
+          "chiral_PR_projected_BZ_mirror_gap": 0.903711
+        },
+        {
+          "y_M": 3.0,
+          "left_physical_chiral_leakage_at_k0": 8.3078e-19,
+          "unprojected_BZ_mirror_gap": 0.299415,
+          "chiral_PR_projected_BZ_mirror_gap": 0.903744
+        },
+        {
+          "y_M": 5.0,
+          "left_physical_chiral_leakage_at_k0": 8.5857e-18,
+          "unprojected_BZ_mirror_gap": 0.19058,
+          "chiral_PR_projected_BZ_mirror_gap": 0.903761
+        },
+        {
+          "y_M": 10.0,
+          "left_physical_chiral_leakage_at_k0": 1.9002e-18,
+          "unprojected_BZ_mirror_gap": 0.09802,
+          "chiral_PR_projected_BZ_mirror_gap": 0.903771
+        },
+        {
+          "y_M": 25.0,
+          "left_physical_chiral_leakage_at_k0": 3.6952e-18,
+          "unprojected_BZ_mirror_gap": 0.039536,
+          "chiral_PR_projected_BZ_mirror_gap": 0.616225
+        }
+      ]
+    }
+  },
+  "gate2d_manybody_dim65536_weyl_smg": {
+    "hurwitz_4_subalgebra_of_Spin10_16": "4 symmetric 4x4 unitary matrices S_A^T = +S_A, S(n)^dag S(n) = |n|^2 I_4",
+    "L1_single_site_dim256_exact": {
+      "hilbert_dim": 256,
+      "E0_GS": -24.0,
+      "E1_first_excited": -16.0,
+      "exact_gap_Delta_E": 8.0,
+      "ground_state_degeneracy": 1,
+      "lorentz_spin_J2_expectation": 1.114e-30,
+      "max_abs_quadratic_ph_bilinear": 3.331e-16,
+      "max_abs_quadratic_pp_majorana_bilinear": 8.82e-17
+    },
+    "L2_coupled_sites_dim65536_lanczos": {
+      "hilbert_dim_total": 65536,
+      "hilbert_dim_even_odd": [
+        32768,
+        32768
+      ],
+      "g_scan": [
+        {
+          "g": 0.25,
+          "E0_even_GS": -12.816386,
+          "E1_even": -11.366643,
+          "E0_odd": -11.056201,
+          "many_body_gap_Delta_E": 1.449744,
+          "ground_state_degeneracy": 1,
+          "max_abs_n_p_minus_half": 1.998e-15,
+          "max_abs_all_120_Majorana_pp_bilinears": 3.67e-16,
+          "max_abs_symbreak_ph_bilinears": 9.642e-16
+        },
+        {
+          "g": 0.5,
+          "E0_even_GS": -24.130337,
+          "E1_even": -20.351832,
+          "E0_odd": -20.389779,
+          "many_body_gap_Delta_E": 3.740558,
+          "ground_state_degeneracy": 1,
+          "max_abs_n_p_minus_half": 1.554e-15,
+          "max_abs_all_120_Majorana_pp_bilinears": 3.338e-16,
+          "max_abs_symbreak_ph_bilinears": 3.979e-16
+        },
+        {
+          "g": 0.75,
+          "E0_even_GS": -36.02093,
+          "E1_even": -30.060797,
+          "E0_odd": -30.150452,
+          "many_body_gap_Delta_E": 5.870478,
+          "ground_state_degeneracy": 1,
+          "max_abs_n_p_minus_half": 3.331e-15,
+          "max_abs_all_120_Majorana_pp_bilinears": 7.931e-16,
+          "max_abs_symbreak_ph_bilinears": 5.172e-16
+        },
+        {
+          "g": 1.0,
+          "E0_even_GS": -48.0,
+          "E1_even": -40.0,
+          "E0_odd": -40.0,
+          "many_body_gap_Delta_E": 8.0,
+          "ground_state_degeneracy": 1,
+          "max_abs_n_p_minus_half": 1.998e-15,
+          "max_abs_all_120_Majorana_pp_bilinears": 2.371e-16,
+          "max_abs_symbreak_ph_bilinears": 1.295e-16
+        }
+      ]
+    }
+  },
+  "gate3_invariances_and_limits": {
+    "Spin10_vector_covariance_all_450_commutators_max_err": 0.0,
+    "S9_random_25_orientations_unitarity_max_err": 4.441e-16,
+    "DomainWall_Ls_exponential_chiral_protection": {
+      "m0_0p5_leakage_Ls6": 0.000122087,
+      "m0_0p5_leakage_Ls10": 4.76837e-07,
+      "m0_0p5_leakage_Ls14": 1.86265e-09,
+      "ratio_Ls10_over_Ls6": 0.00390572,
+      "ratio_Ls14_over_Ls10_vs_exact_1_over_256": 0.0039062479,
+      "fiducial_m0_0p9_Ls12_leakage": 3.946e-18
+    }
+  }
+}

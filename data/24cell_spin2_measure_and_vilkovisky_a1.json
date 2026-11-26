@@ -1,0 +1,123 @@
+{
+  "script": "verify_24cell_spin2_measure_and_vilkovisky_a1.py",
+  "epistemic_status": {
+    "NATURE_LEVEL_CLOSURE": false,
+    "PROVEN_ALGEBRAIC": [
+      "First-principles SymPy derivation of the 4D DeWitt Christoffel connection bar{g}_{ab} Gamma_{DW}^{ab}(h,h) = [2(1 - c_DW)/(2 c_DW - 1)](h_{mn}h^{mn} - (1/4) h^2) proves exact off-shell cancellation of nonlinear metric parameterizations omega_{param} in L_{VDW}^{(2)}, while off-shell Bianchi invariance kills vertical gauge-connection terms on Landau-DeWitt horizontal modes.",
+      "Exact 4-sector York-harmonic + Bernoulli midpoint Euler-Maclaurin derivation on S^4(r) yields the closed-form 2-parameter formula a_1^{grav}(bar{R}, Lam, alpha_{gf}, c_{DW}) (matching Module B's S^2 x S^2 result 20 Lam - (23/3) bar{R} at (1, 1) and universal -(8/3) bar{R} on-shell for all (alpha_{gf}, c_{DW})) and its unique gauge-independent Vilkovisky-DeWitt off-shell limit a_1^{VDW}(bar{R}, Lam, c_{DW}) = [36 Lam(c_DW - 3) - bar{R}(32 c_DW^2 - 71 c_DW + 5)] / [6(2 c_DW - 1)(c_DW - 2)].",
+      "Exact 24-cell spherical 4-design & W(F_4) link decomposition 12_{links} = 1_{trace} (+) 9_{TL} (+) 2_{internal} proves rank-10 continuum metric faithfulness and sum_{m=1}^{12} (delta sigma_m)^2 = (1/4)(h_{mn}h^{mn} + (1/2) h^2), selecting omega_{param} = 0 and positive-definite supermetric c_DW = -1 where a_1^{VDW}(Lam=0) = -2 bar{R} (c_{grav} = -12, vs -34 at canonical c_DW = +1).",
+      "Induced-Gravity Sign Theorem: Minimal-xi_H pure SM + 3 nu_R + dynamical spin-2 graviton yields C_{tot} = 4.29 + c_{grav} < 0 across ALL 5 standard and 24-cell prescriptions (PROVEN NO-GO without xi_H < -1/3, c_DW = 0, or UV completion), whereas Paper 30's Branch II (MSSM + 3 nu_R above M_S = 150 TeV, C_{matter} = 120 - 624 bar{xi}_{sc}) gives C_{tot} > 0 across ALL 6 prescriptions for minimal/small scalar couplings bar{xi}_{sc} < 0.1186, and even at exact conformal scalars bar{xi}_{sc} = 1/6 remains strictly positive at the 24-cell link supermetric c_DW = -1 (+4 > 0) and c_DW = 0 (+13.5 > 0)."
+    ],
+    "OPEN": [
+      "Constructive 4D dynamical Regge / 24-cell spin-2 continuum limit (including the non-local discrete Faddeev-Popov diffeomorphism Jacobian highlighted by Menotti & Pelissetto 1987 and potential gravitational asymptotic-safety fixed-point corrections beyond 1-loop heat-kernel truncation)."
+    ]
+  },
+  "part1_vilkovisky_dewitt_and_s4_heat_kernel": {
+    "gate1a_S4_scalar_a0_a1_a2": [
+      1,
+      2,
+      "29/15"
+    ],
+    "gate1a_S4_4vector_a0_a1": [
+      4,
+      8
+    ],
+    "gate1b_cross_manifold_match_ModuleB_deDonder": "20*Lam - 23*R_bar/3",
+    "gate1b_onshell_Einstein_all_alpha_all_cDW": "-8*R_bar/3",
+    "gate1c_Fradkin_Tseytlin_VDW_cDW1_Lam0": "-17*R_bar/3",
+    "dewitt_christoffel_trace_formula": "bar{g}_{ab} Gamma_{DW}^{ab}(h,h) == [2(1 - c_DW)/(2 c_DW - 1)] (h_{mn}h^{mn} - (1/4) h^2)",
+    "nonlinear_omega_param_offshell_derivative_zero": true,
+    "a1_grav_general_2param_formula": "(36*Lam*alpha_gf*c_DW - 84*Lam*alpha_gf + 36*Lam*c_DW - 108*Lam - R_bar*(9*alpha_gf*c_DW - 21*alpha_gf + 32*c_DW**2 - 71*c_DW + 5))/(6*(2*c_DW**2 - 5*c_DW + 2))",
+    "a1_VDW_exact_offshell_formula": "(36*Lam*c_DW - 108*Lam - R_bar*(32*c_DW**2 - 71*c_DW + 5))/(6*(2*c_DW**2 - 5*c_DW + 2))",
+    "a1_VDW_Lam0_values": {
+      "c_DW_plus_1_canonical_EH": "-17*R_bar/3",
+      "c_DW_0_trace_decoupled": "-5*R_bar/12",
+      "c_DW_minus_1_24cell_link_norm": "-2*R_bar"
+    }
+  },
+  "part2_24cell_link_measure_and_sign_theorem": {
+    "D4_spherical_4design_exact": "sum_{m=1}^{12} e_m^mu e_m^nu e_m^rho e_m^sigma == (1/2)(d^{mn}d^{rs} + d^{mr}d^{ns} + d^{ms}d^{nr})",
+    "W_F4_link_decomposition": "12_{links} = 1_{trace} (eig 3/4) (+) 9_{TL} (eig 1/4) (+) 2_{internal} (eig 0)",
+    "link_readout_rank_10_faithful": true,
+    "induced_24cell_link_supermetric": {
+      "norm_identity": "sum_{m=1}^{12} (delta sigma_m)^2 == (1/4)(h_{mn}h^{mn} + (1/2) h^2)",
+      "omega_param": 0,
+      "c_DW": -1,
+      "positive_definite_supermetric_eigenvalues": [
+        1,
+        3
+      ],
+      "a1_VDW_at_cDW_minus1_Lam0": "-2*R_bar",
+      "c_grav_VDW_at_cDW_minus1": -12.0,
+      "menotti_pelissetto_caveat": "Ultralocal link measure fixes the algebraic supermetric c_DW = -1, whereas the full non-local discrete Regge Faddeev-Popov Jacobian in the 4D continuum limit remains OPEN."
+    },
+    "induced_gravity_sign_theorem_table": [
+      {
+        "prescription": "On-shell Einstein (Christensen-Duff)",
+        "a1_grav_over_R_bar": "-8/3",
+        "c_grav_48pi_norm": -16.0,
+        "C_tot_pure_SM_3nuR_minimal_xi0": -11.7135,
+        "pure_SM_minimal_G_ind_positive": false,
+        "xi_H_UV_upper_bound_for_pure_SM": -0.5,
+        "C_tot_MSSM_3nuR_minimal_scalars": 104.0,
+        "C_tot_MSSM_3nuR_conformal_scalars_xi_1_6": 0.0,
+        "bar_xi_scalar_UV_upper_bound_for_MSSM": 0.166667
+      },
+      {
+        "prescription": "Vilkovisky-DeWitt 24-cell link supermetric (c_DW = -1)",
+        "a1_grav_over_R_bar": "-2",
+        "c_grav_48pi_norm": -12.0,
+        "C_tot_pure_SM_3nuR_minimal_xi0": -7.7135,
+        "pure_SM_minimal_G_ind_positive": false,
+        "xi_H_UV_upper_bound_for_pure_SM": -0.333333,
+        "C_tot_MSSM_3nuR_minimal_scalars": 108.0,
+        "C_tot_MSSM_3nuR_conformal_scalars_xi_1_6": 4.0,
+        "bar_xi_scalar_UV_upper_bound_for_MSSM": 0.173077
+      },
+      {
+        "prescription": "Vilkovisky-DeWitt canonical EH supermetric (c_DW = +1)",
+        "a1_grav_over_R_bar": "-17/3",
+        "c_grav_48pi_norm": -34.0,
+        "C_tot_pure_SM_3nuR_minimal_xi0": -29.7135,
+        "pure_SM_minimal_G_ind_positive": false,
+        "xi_H_UV_upper_bound_for_pure_SM": -1.25,
+        "C_tot_MSSM_3nuR_minimal_scalars": 86.0,
+        "C_tot_MSSM_3nuR_conformal_scalars_xi_1_6": -18.0,
+        "bar_xi_scalar_UV_upper_bound_for_MSSM": 0.137821
+      },
+      {
+        "prescription": "de Donder exponential param (alpha_gf = 1, omega = 1)",
+        "a1_grav_over_R_bar": "-11/3",
+        "c_grav_48pi_norm": -22.0,
+        "C_tot_pure_SM_3nuR_minimal_xi0": -17.7135,
+        "pure_SM_minimal_G_ind_positive": false,
+        "xi_H_UV_upper_bound_for_pure_SM": -0.75,
+        "C_tot_MSSM_3nuR_minimal_scalars": 98.0,
+        "C_tot_MSSM_3nuR_conformal_scalars_xi_1_6": -6.0,
+        "bar_xi_scalar_UV_upper_bound_for_MSSM": 0.157051
+      },
+      {
+        "prescription": "de Donder linear param (alpha_gf = 1, omega = 0)",
+        "a1_grav_over_R_bar": "-23/3",
+        "c_grav_48pi_norm": -46.0,
+        "C_tot_pure_SM_3nuR_minimal_xi0": -41.7135,
+        "pure_SM_minimal_G_ind_positive": false,
+        "xi_H_UV_upper_bound_for_pure_SM": -1.75,
+        "C_tot_MSSM_3nuR_minimal_scalars": 74.0,
+        "C_tot_MSSM_3nuR_conformal_scalars_xi_1_6": -30.0,
+        "bar_xi_scalar_UV_upper_bound_for_MSSM": 0.11859
+      },
+      {
+        "prescription": "Vilkovisky-DeWitt trace-decoupled supermetric (c_DW = 0)",
+        "a1_grav_over_R_bar": "-5/12",
+        "c_grav_48pi_norm": -2.5,
+        "C_tot_pure_SM_3nuR_minimal_xi0": 1.7865,
+        "pure_SM_minimal_G_ind_positive": true,
+        "xi_H_UV_upper_bound_for_pure_SM": 0.0625,
+        "C_tot_MSSM_3nuR_minimal_scalars": 117.5,
+        "C_tot_MSSM_3nuR_conformal_scalars_xi_1_6": 13.5,
+        "bar_xi_scalar_UV_upper_bound_for_MSSM": 0.188301
+      }
+    ]
+  }
+}
